@@ -3,21 +3,15 @@ Design critique domain module for the Komodo platform
 
 # Tilt Brush Instructions
 
+***
+
 ## Checklist
 1. Save your sketch (TILT file) to computer
 2. Ensure your sketch and model are backed up in Google Drive
 3. Export your model (GLB file) to computer
 4. Upload your sketch to Poly
 
-## More Info
-5. Save any existing sketches before making a new one
-2. Sign into Fashion Illustration account
-3. Enable Google Drive Backup for sketches and exported sketches
-4. Understand the difference between sketch files and model files
-5. Troubleshooting
-6. Helpful Links
-
-***
+For more info, see "More Info" below.
 
 ## 1. Save your sketch (TILT file) to the computer
 
@@ -74,6 +68,14 @@ Open `Documents/Tilt Brush/Exports/SketchNameHere/fbx/` to view the FBX file.
 4. Enter the details in the browser (remove your headset).
 
 ***
+
+## More Info
+5. Save any existing sketches before making a new one
+2. Sign into Fashion Illustration account
+3. Enable Google Drive Backup for sketches and exported sketches
+4. Understand the difference between sketch files and model files
+5. Troubleshooting
+6. Helpful Links
 
 ## 5. Save any existing sketches before making a new one
 
