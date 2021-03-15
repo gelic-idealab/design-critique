@@ -2,34 +2,24 @@
 Design critique domain module for the Komodo platform
 
 # Tilt Brush Instructions 
-For PC VR, which includes Oculus Rift (S) and Oculus Link (Quest plugged into a PC)
+For Oculus Quest
 
 ***
 
 ## Checklist
-1. Save your sketch (TILT file) to computer
+1. Save your sketch (TILT file) to the device
 2. Ensure your sketch and model are backed up in Google Drive
-3. Export your model (GLB file) to computer
+3. Export your model (GLB file) to the device
 4. Upload your sketch to Poly
 
 For more info, see "More Info" below.
 
-## 1. Save your sketch (TILT file) to the computer
+## 1. Save your sketch (TILT file) to the device
 
-Save the sketch by pressing the icon above the Tilt Brush logo.
-
-Open the sketch's file location: 
-
+1. Save the sketch by pressing the icon above the Tilt Brush logo.
 1. Open the Sketches panel by choosing the Tilt Brush icon.
 2. Make a note of the sketch name by hovering over the desired sketch.
-3. Show more options for the desired sketch by selecting the three dots.
-4. Choose "Reveal on desktop" (the folder icon).
-5. Open the folder with the sketch name. 
-6. Copy the file called `<SketchName>.tilt`.
 
-Alternatively, open `Documents/Tilt Brush/Sketches` to view the sketches.
-
-![Visual aid for finding sketch on the computer from Tilt Brush](assets/08-find-sketch-on-computer.gif)
 ![Visual aid for finding sketch on the computer in File Explorer](assets/08-find-sketch-on-computer.png)
 
 ## 2. Ensure your sketch and model are backed up to Google Drive
@@ -39,12 +29,10 @@ Alternatively, open `Documents/Tilt Brush/Sketches` to view the sketches.
 3. Open the Google Drive folder in a browser by selecting "View on Drive".
 4. Find the sketch by searching Google Drive for files modified today. 
 
-Alternatively, open `Tilt Brush/Sketches/` to locate the sketches and `Tilt Brush/Exports/SketchNameHere/glb/` or `TiltBrush/Exports/SketchNameHere/fbx/` to locate your models.
-
 ![Visual aid for opening Google Drive folder](assets/06-open-google-drive-folder.gif)
 ![Visual aid for finding sketch in Google Drive](assets/07-find-sketch-in-google-drive.gif)
 
-## 3. Export your model (GLB file) to the computer
+## 3. Export your model (GLB file) to the device
 
 1. Enable Advanced Mode by toggling the icon to the lower left of the Tilt Brush logo.
 2. Open the More Options... panel by selecting the three dots to the lower right of the Tilt Brush logo.
@@ -53,20 +41,14 @@ Alternatively, open `Tilt Brush/Sketches/` to locate the sketches and `Tilt Brus
 
 ![Visual aid for setting advanced mode and exporting sketch.](assets/05-set-advanced-mode-and-export-sketch.gif)
 
-Open `Documents/Tilt Brush/Exports/SketchNameHere/glb/` to view the GLB file.
-
-Open `Documents/Tilt Brush/Exports/SketchNameHere/fbx/` to view the FBX file.
-
-![Visual aid for finding model on the computer](assets/09-find-model-on-computer.gif)
-
 ## 4. Upload your sketch to Google Poly
 
 1. Open the Upload panel by choosing the cloud icon near the Tilt Brush logo.
 2. If needed, sign into Google Poly by selecting "Sign In" on the left.
-   1. Sign in in the browser after removing your headset. 
-   2. Return to Tilt Brush -- put your headset back on. 
+   1. Sign in in the browser.
+   2. Return to Tilt Brush -- re-launch the app.
 3. Upload to Google Poly by choosing "Upload to Poly" on the left.
-4. Enter the details in the browser (remove your headset).
+4. Enter the details in the browser.
 
 ***
 
@@ -96,7 +78,8 @@ Open Tilt Brush. Check to make sure someone else’s sketch isn’t already open
 
 1. Open the sketches panel by pressing the Tilt Brush logo (a colorful "G").
 2. Open the accounts panel by selecting the profile icon in the lower left corner.
-3. Sign in to illinoisfashionillustration@gmail.com by taking off the headset and following the prompts in your browser.
+3. Sign in to illinoisfashionillustration@gmail.com by following the prompts in your browser.
+4. Return to Tilt Brush — re-launch the app.
 
 ![Visual aid for signing in](assets/02-sign-in.gif)
 
