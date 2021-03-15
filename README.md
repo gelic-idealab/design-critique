@@ -71,7 +71,7 @@ Open `Documents/Tilt Brush/Exports/SketchNameHere/fbx/` to view the FBX file.
    1. Sign in in the browser after removing your headset. 
    2. Return to Tilt Brush -- put your headset back on. 
 3. Upload to Google Poly by choosing "Upload to Poly" on the left.
-4. Enter the details 
+4. Enter the details in the browser (remove your headset).
 
 ***
 
