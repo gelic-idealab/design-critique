@@ -10,17 +10,16 @@ Design critique domain module for the Komodo platform
 4. Upload your sketch to Poly
 
 ## More Info
-1. Save any existing sketches before making a new one
-1. Draw your sketch
-1. Sign into Fashion Illustration account
-1. Enable Google Drive Backup for sketches and exported sketches
-1. Understand the difference between sketch files and model files
-2. Troubleshooting
-3. Helpful Links
+5. Save any existing sketches before making a new one
+2. Sign into Fashion Illustration account
+3. Enable Google Drive Backup for sketches and exported sketches
+4. Understand the difference between sketch files and model files
+5. Troubleshooting
+6. Helpful Links
 
 ***
 
-## Save your sketch (TILT file) to the computer
+## 1. Save your sketch (TILT file) to the computer
 
 Save the sketch by pressing the icon above the Tilt Brush logo.
 
@@ -38,7 +37,7 @@ Alternatively, open `Documents/Tilt Brush/Sketches` to view the sketches.
 ![Visual aid for finding sketch on the computer from Tilt Brush](assets/08-find-sketch-on-computer.gif)
 ![Visual aid for finding sketch on the computer in File Explorer](assets/08-find-sketch-on-computer.png)
 
-## Ensure your sketch and model are backed up to Google Drive
+## 2. Ensure your sketch and model are backed up to Google Drive
 
 1. Open Accounts by selecting the profile icon below the Tilt Brush logo. 
 2. Open the Google Drive panel by choosing "Drive Backup".
@@ -50,7 +49,7 @@ Alternatively, open `Tilt Brush/Sketches/` to locate the sketches and `Tilt Brus
 ![Visual aid for opening Google Drive folder](assets/06-open-google-drive-folder.gif)
 ![Visual aid for finding sketch in Google Drive](assets/07-find-sketch-in-google-drive.gif)
 
-## Export your model (GLB file) to the computer
+## 3. Export your model (GLB file) to the computer
 
 1. Enable Advanced Mode by toggling the icon to the lower left of the Tilt Brush logo.
 2. Open the More Options... panel by selecting the three dots to the lower right of the Tilt Brush logo.
@@ -65,7 +64,7 @@ Open `Documents/Tilt Brush/Exports/SketchNameHere/fbx/` to view the FBX file.
 
 ![Visual aid for finding model on the computer](assets/09-find-model-on-computer.gif)
 
-## Upload your sketch to Google Poly
+## 4. Upload your sketch to Google Poly
 
 1. Open the Upload panel by choosing the cloud icon near the Tilt Brush logo.
 2. If needed, sign into Google Poly by selecting "Sign In" on the left.
@@ -76,7 +75,7 @@ Open `Documents/Tilt Brush/Exports/SketchNameHere/fbx/` to view the FBX file.
 
 ***
 
-## (Optional) Save any existing sketches before making a new one
+## 5. Save any existing sketches before making a new one
 
 Open Tilt Brush. Check to make sure someone else’s sketch isn’t already open. If it is, save it just in case:
 
@@ -90,7 +89,7 @@ Open Tilt Brush. Check to make sure someone else’s sketch isn’t already open
 3. Draw a new sketch.
 4. Save the new sketch by pressing the save icon near the Tilt Brush logo.
 
-## Sign into the course-wide Fashion Illustration account
+## 6. Sign into the course-wide Fashion Illustration account
 
 1. Open the sketches panel by pressing the Tilt Brush logo (a colorful "G").
 2. Open the accounts panel by selecting the profile icon in the lower left corner.
@@ -98,7 +97,7 @@ Open Tilt Brush. Check to make sure someone else’s sketch isn’t already open
 
 ![Visual aid for signing in](assets/02-sign-in.gif)
 
-## Enable Google Drive Backup for sketches and exported sketches
+## 7. Enable Google Drive Backup for sketches and exported sketches
 
 1. Open Accounts by selecting the profile icon below the Tilt Brush logo. 
 2. Open the Google Drive panel by choosing "Drive Backup".
@@ -109,13 +108,13 @@ Open Tilt Brush. Check to make sure someone else’s sketch isn’t already open
 
 Then make a new sketch. 
 
-## Understand the difference between sketch files and model files
+## 8. Understand the difference between sketch files and model files
 
 Sketch files are TILT files, and save all data associated with your sketch, including the environment and image references. They are like PSD files, or Word documents. They can only be opened by Tilt Brush or custom apps built with Tilt Brush tools. If you want to edit your sketch in the future, you should keep this file. 
 
 Model files are GLB or FBX files, and save only the brush strokes from your sketch. They are like PNG files. They can be imported into other viewer apps. If you want to just view the model made from your sketch, you should use this file.  The easiest way to turn a sketch into a model file is to use Tilt Brush, so it is best to export a model file while you are in the app. 
 
-## Troubleshooting
+## 9. Troubleshooting
 
 The browser may not automatically open when you do some of the following: 
 
@@ -125,7 +124,7 @@ The browser may not automatically open when you do some of the following:
 
 If that happens, save your sketch, relaunch Tilt Brush, and try again.
 
-## Helpful Links
+## 10. Helpful Links
 
 
 [Tilt Brush Help > Painting with Tilt Brush](https://support.google.com/tiltbrush/answer/6389712?hl=en&ref_topic=7074683)
