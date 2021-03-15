@@ -16,11 +16,11 @@ For more info, see "More Info" below.
 
 ## 1. Save your sketch (TILT file) to the device
 
-1. Save the sketch by pressing the icon above the Tilt Brush logo.
+Save the sketch by pressing the icon above the Tilt Brush logo.
+
+To check if the sketch is saved...
 1. Open the Sketches panel by choosing the Tilt Brush icon.
 2. Make a note of the sketch name by hovering over the desired sketch.
-
-![Visual aid for finding sketch on the computer in File Explorer](assets/08-find-sketch-on-computer.png)
 
 ## 2. Ensure your sketch and model are backed up to Google Drive
 
@@ -45,7 +45,7 @@ For more info, see "More Info" below.
 
 1. Open the Upload panel by choosing the cloud icon near the Tilt Brush logo.
 2. If needed, sign into Google Poly by selecting "Sign In" on the left.
-   1. Sign in in the browser.
+   1. Sign in via the browser.
    2. Return to Tilt Brush -- re-launch the app.
 3. Upload to Google Poly by choosing "Upload to Poly" on the left.
 4. Enter the details in the browser.
