@@ -43,10 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5bc10c916fff4948adcea1a6a023bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandGrab: 0
   firstObjectGrabbed: {fileID: 0}
   originalParentOfFirstHandTransform: {fileID: 0}
-  leftHandGrab: 0
   secondObjectGrabbed: {fileID: 0}
   originalParentOfSecondHandTransform: {fileID: 0}
-  isdoubleGrabbing: 0
+  handReferences:
+  - {fileID: 0}
+  - {fileID: 0}
+  onDoubleAssetGrab:
+    m_PersistentCalls:
+      m_Calls: []
+  onDoubleAssetRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  pivotRootTransform: {fileID: 0}
+  doubleGrabRotationTransform: {fileID: 0}
+  handParentForContainerPlacement: {fileID: 0}
+  doubleGrabRotateCoordinate: {fileID: 0}
+  isInitialDoubleGrab: 0
+  axesPrefab: {fileID: 919132149155446097, guid: d58dd26cf5ec59f489876fff8e011103,
+    type: 3}
+  initialTransformDisplay: {fileID: 0}
+  currentTransformDisplay: {fileID: 0}

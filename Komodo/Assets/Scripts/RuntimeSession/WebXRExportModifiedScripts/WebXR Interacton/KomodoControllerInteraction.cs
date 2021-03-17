@@ -530,18 +530,18 @@ namespace Komodo.Runtime
                     //SET WHOLE OBJECT PIVOT TO BE POSITION OF FIRST HAND THAT GRABBED OBJECT, ALLOWING FOR EXPANDING FROM FIRST HAND
                     if (firstControllerInteraction == this)
                     {
-                      GrabControlManager.Instance.pivotRootTransform.position = secondControllerInteraction.thisTransform.position;
+                      GrabControlManager.Instance.firstGrabPoint.position = secondControllerInteraction.thisTransform.position;
 
 
                     }
                     else if (secondControllerInteraction == this)
                     {
-                        GrabControlManager.Instance.pivotRootTransform.position = firstControllerInteraction.thisTransform.position;
+                        GrabControlManager.Instance.firstGrabPoint.position = firstControllerInteraction.thisTransform.position;
                     }
 
                     //RESET AND SET PIVOT PARENT
-                    GrabControlManager.Instance.pivotRootTransform.transform.localScale = Vector3.one;
-                    GrabControlManager.Instance.firstObjectGrabbed.SetParent(GrabControlManager.Instance.pivotRootTransform, true);
+                    GrabControlManager.Instance.firstGrabPoint.transform.localScale = Vector3.one;
+                    GrabControlManager.Instance.firstObjectGrabbed.SetParent(GrabControlManager.Instance.firstGrabPoint, true);
 
                     return;
                 }
@@ -676,7 +676,7 @@ namespace Komodo.Runtime
                    // GrabControlManager.Instance.originalParentOfFirstHandTransform = null;
                 }
                 //to reset information for double grab
-                GrabControlManager.Instance.isInitialDoubleGrab = false;
+                GrabControlManager.Instance.didStartStretching = false;
                 currentTransform = null;
                 hasObject = false;
             }
@@ -740,7 +740,7 @@ namespace Komodo.Runtime
             nearPar = nearestTransform.transform.parent;
 
             if (nearPar)
-                if (nearPar != firstControllerInteraction.thisTransform && nearPar != secondControllerInteraction.thisTransform && nearPar != GrabControlManager.Instance.doubleGrabRotationTransform && nearPar != GrabControlManager.Instance.pivotRootTransform && GrabControlManager.Instance.handParentForContainerPlacement != nearPar)
+                if (nearPar != firstControllerInteraction.thisTransform && nearPar != secondControllerInteraction.thisTransform && nearPar != GrabControlManager.Instance.GrabMidpoint && nearPar != GrabControlManager.Instance.firstGrabPoint && GrabControlManager.Instance.handParent != nearPar)
                 {
                     var parent = nearestTransform.transform.parent;
 
