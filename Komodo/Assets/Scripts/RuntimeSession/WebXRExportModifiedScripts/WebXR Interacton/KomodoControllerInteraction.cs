@@ -740,7 +740,7 @@ namespace Komodo.Runtime
             nearPar = nearestTransform.transform.parent;
 
             if (nearPar)
-                if (nearPar != firstControllerInteraction.thisTransform && nearPar != secondControllerInteraction.thisTransform && nearPar != GrabControlManager.Instance.GrabMidpoint && nearPar != GrabControlManager.Instance.firstGrabPoint && GrabControlManager.Instance.handParent != nearPar)
+                if (nearPar != firstControllerInteraction.thisTransform && nearPar != secondControllerInteraction.thisTransform && nearPar != GrabControlManager.Instance.grabMidpoint && nearPar != GrabControlManager.Instance.firstGrabPoint && GrabControlManager.Instance.handParent != nearPar)
                 {
                     var parent = nearestTransform.transform.parent;
 

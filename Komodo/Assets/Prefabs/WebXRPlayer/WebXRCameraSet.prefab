@@ -1271,19 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2887459ffae269142ae493191b09f909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalLineColor: {r: 1, g: 0, b: 0.1254902, a: 0.52156866}
-  selectionLineColor: {r: 0.6039216, g: 0.16078432, b: 0.5568628, a: 0.73333335}
-  isParabolic: 1
-  distance: 22
-  dropHeight: 12
-  controlHeight: 5
-  segments: 15
-  surfaceAngle: 5
-  transportationIndicator: {fileID: 1435417241199055594}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  isOverObject: 0
+  FlagTagMask_ForButtonUI: UIInteractable
   onNewTransformUpdate:
     m_PersistentCalls:
       m_Calls:
@@ -3185,19 +3173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2887459ffae269142ae493191b09f909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalLineColor: {r: 1, g: 0, b: 0.1254902, a: 0.52156866}
-  selectionLineColor: {r: 0.6039216, g: 0.16078432, b: 0.5568628, a: 0.73333335}
-  isParabolic: 1
-  distance: 22
-  dropHeight: 12
-  controlHeight: 5
-  segments: 15
-  surfaceAngle: 5
-  transportationIndicator: {fileID: 1435417241293792520}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
-  isOverObject: 0
+  FlagTagMask_ForButtonUI: UIInteractable
   onNewTransformUpdate:
     m_PersistentCalls:
       m_Calls:
@@ -5236,7 +5212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CameraFloorOffsetObject: {fileID: 8475326654052350429}
   m_RequestedTrackingMode: 0
-  m_TrackingOriginMode: 1
+  m_TrackingOriginMode: 2
   m_TrackingSpace: 0
   m_CameraYOffset: 1.8
 --- !u!114 &8475500293205437309

@@ -34,7 +34,7 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
     //Hierarchy used to set correct Pivot points for scalling and rotating objects on DoubleGrab
     [ShowOnly] public Transform firstGrabPoint;             ///PARENT SCALE PIVOT1 CONTAINER
     private static Transform secondGrabPoint;             ///-CHILD SCALE PIVOT2 CONTAINER
-    [ShowOnly] public Transform GrabMidpoint;       //--Child for rotations
+    [ShowOnly] public Transform grabMidpoint;       //--Child for rotations
 
     [ShowOnly] public Transform handParent;
 
@@ -57,6 +57,10 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
     public GameObject initialTransformDisplay;
     public GameObject currentTransformDisplay;
 
+    private GameObject objectPoseDisplay;
+
+    private Quaternion initialRotationOffset; //the amount it would take to rotate from the current midpoint's rotation to the object's rotation
+
     public void Awake()
     {
         //used to set our managers alive state to true to detect if it exist within scene
@@ -68,27 +72,41 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
 
         //create hierarchy to rotate double grab objects appropriately
         //create root parent and share it through scripts by setting it to a static field
-        firstGrabPoint = new GameObject("FirstGrabPoint").transform;
+        var firstGrabPointDisplay = CreateDisplay("FirstGrabPoint");
+        firstGrabPoint = firstGrabPointDisplay.transform;
         ////place object one level up from hand to avoid getting our hand rotations
         firstGrabPoint.parent = transform.parent;
 
         //construct coordinate system to reference for tilting double grab object 
-        initialCoordinateSystem = new GameObject("DoubleGrabCoordinateForObjectTilt").transform;
+        var initialCoordinateSystemDisplay = CreateDisplay("InitialCoordinateSystem");
+        initialCoordinateSystem = initialCoordinateSystemDisplay.transform;
         initialCoordinateSystem.SetParent(transform.root.parent, true);
         initialCoordinateSystem.localPosition = Vector3.zero;
 
-        //parent used to set secondary hand pivot for scalling objects properly
-        secondGrabPoint = new GameObject("SecondGrabPoint").transform;
+        var secondGrabPointDisplay = CreateDisplay("SecondGrabPoint");
+        secondGrabPoint = secondGrabPointDisplay.transform;
         secondGrabPoint.SetParent(firstGrabPoint, true);
         secondGrabPoint.localPosition = Vector3.zero;
 
-        //parent used for rotating or doble grab object
-        GrabMidpoint = new GameObject("GrabMidpoint").transform;
-        GrabMidpoint.SetParent(secondGrabPoint, true);
-        GrabMidpoint.localPosition = Vector3.zero;
+        var grabMidPointDisplay = CreateDisplay("GrabMidPoint");
+        grabMidpoint = grabMidPointDisplay.transform;
+        grabMidpoint.SetParent(secondGrabPoint, true);
+        grabMidpoint.localPosition = Vector3.zero;
+
+        objectPoseDisplay = CreateDisplay("ObjectPose");
     }
 
-    
+    public GameObject CreateDisplay (string name) {
+        var doDebug = true;
+        if (doDebug)
+        {
+            var result = Instantiate(axesPrefab);
+            result.name = name;
+            return result;
+        }
+
+        return new GameObject(name);
+    }
 
     public void Start()
     {
@@ -131,23 +149,31 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
         {
             InitializeStretchValues();
 
+            InitializeStretchValues2();
+
             didStartStretching = true;
 
             return;
         }
 
-        UpdateScale();
+        //UpdateScale();
         
-
         //place our grabbed object and second pivot away from the influeces of scale and rotation at first
         firstObjectGrabbed.SetParent(handParent, true);
         secondGrabPoint.SetParent(handParent, true);
 
         UpdateGrabPoints();
+        
+        //set our second pivot as a child of first to have a pivot for each hands
+        secondGrabPoint.SetParent(firstGrabPoint, true);
 
-        UpdateRotation();
+        //set it to parent to modify rotation
+        firstObjectGrabbed.SetParent(grabMidpoint, true);
 
-        UpdatePosition();
+        //UpdateRotation();
+        UpdateRotation2();
+
+        //UpdatePosition();
     }
 
     void InitializeStretchValues () {                
@@ -158,7 +184,7 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
         secondGrabPoint.rotation = handParent.rotation;
 
         //reset values for our container objects that we use to deform and rotate objects
-        GrabMidpoint.rotation = Quaternion.identity;
+        grabMidpoint.rotation = Quaternion.identity;
 
         firstGrabPoint.localScale = Vector3.one;
 
@@ -172,8 +198,8 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
         var tiltRotation = initialRotation * initialCoordinateSystem.rotation;
 
         //our initial orientation to use to tilt object, due to the way lookat behavior behaves we have to set x as Z 
-        initialZCoord = tiltRotation.eulerAngles.x - GrabMidpoint.transform.eulerAngles.x;
-        initialYCoord = tiltRotation.eulerAngles.y - GrabMidpoint.transform.eulerAngles.y;
+        initialZCoord = tiltRotation.eulerAngles.x - grabMidpoint.transform.eulerAngles.x;
+        initialYCoord = tiltRotation.eulerAngles.y - grabMidpoint.transform.eulerAngles.y;
 
         ////to fix parenting scalling down issue between centerpoint of hands and object
         initialOffsetFromHandToGrabbedObject = firstObjectGrabbed.position - ((hands[1].transform.position + hands[0].transform.position) / 2);// - handParentForContainerPlacement.position;
@@ -182,22 +208,35 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
         initialPlayerRotation = handParent.rotation;
     }
 
+    void InitializeStretchValues2 ()
+    {
+        objectPoseDisplay.transform.SetParent(firstObjectGrabbed);
+        objectPoseDisplay.transform.localPosition = Vector3.zero;
+
+        //rotate the midpoint so its forward vector's endpoints are the hands.
+        //it is already on the line drawn between the hands, so we just need
+        //to look at one of the endpoints.
+        grabMidpoint.LookAt(secondGrabPoint.position);
+
+        initialRotationOffset = Quaternion.FromToRotation(grabMidpoint.forward, firstObjectGrabbed.forward);
+    }
+
+    void UpdateRotation2 () 
+    {
+        grabMidpoint.LookAt(secondGrabPoint.position);
+
+        //firstObjectGrabbed.rotation = initialRotationOffset * grabMidpoint.rotation;
+    }
+
     void UpdateGrabPoints () {
         //SET PIVOT Location through our parents
-        firstGrabPoint.position = hands[1].transform.position;// secondControllerInteraction.thisTransform.position;
-        secondGrabPoint.position = hands[0].transform.position;// firstControllerInteraction.thisTransform.position;
+        firstGrabPoint.position = hands[1].transform.position;
+        
+        secondGrabPoint.position = hands[0].transform.position;
+        
 
         //place position of rotations to be in the center of both hands to rotate according to center point of hands not object center
-        GrabMidpoint.position = ((hands[1].transform.position + hands[0].transform.position) / 2);
-
-        //set our second pivot as a child of first to have a pivot for each hands
-        secondGrabPoint.SetParent(firstGrabPoint, true);
-
-        //set it to parent to modify rotation
-        firstObjectGrabbed.SetParent(GrabMidpoint, true);
-
-        // provides how an object should behave when double grabbing, object looks at one hand point of hand
-        initialCoordinateSystem.LookAt((hands[1].transform.position - hands[0].transform.position), Vector3.up);
+        grabMidpoint.position = ((hands[1].transform.position + hands[0].transform.position) / 2);
     }
 
     void UpdateScale () {
@@ -224,6 +263,9 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
     }
 
     void UpdateRotation () {
+        // provides how an object should behave when double grabbing, object looks at one hand point of hand
+        initialCoordinateSystem.LookAt((hands[1].transform.position - hands[0].transform.position), Vector3.up);
+
         var currentScaleRatio = GetCurrentScaleRatio();
 
         //offset our current rotation from our initial difference to set
@@ -235,7 +277,7 @@ public class GrabControlManager : SingletonComponent<GrabControlManager>, IUpdat
         var quat4 = Quaternion.AngleAxis(FreeFlightController.ClampAngle(initialZCoord - lookRot.eulerAngles.x, -360, 360), -initialCoordinateSystem.right);
 
         //add our rotatations
-        GrabMidpoint.rotation = quat3 * quat4;// Quaternion.RotateTowards(doubleGrabRotationTransform.rotation, quat3 * quat4,60);// * handParentForContainerPlacement.rotation;
+        grabMidpoint.rotation = quat3 * quat4;// Quaternion.RotateTowards(doubleGrabRotationTransform.rotation, quat3 * quat4,60);// * handParentForContainerPlacement.rotation;
 
         //check for shifting of our player rotation to adjust our offset to prevent us from accumulating offsets that separates our grabbed object from hand
         if (handParent.eulerAngles.y != initialPlayerRotation.eulerAngles.y)
