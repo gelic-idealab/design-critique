@@ -59,6 +59,10 @@ Open `Documents/Tilt Brush/Exports/SketchNameHere/fbx/` to view the FBX file.
 
 ![Visual aid for finding model on the computer](assets/09-find-model-on-computer.gif)
 
+Preview your model by going to https://sandbox.babylonjs.com/ and dragging the GLB file onto the page. 
+
+NOTE: GLB files generated with Tilt Brush need post-processing to display properly, so colors and animations may look incorrect in the preview on the link above. Also, Windows 3D Viewer cannot read Tilt Brush-generated GLB files, unfortunately. 
+
 ## 4. Upload your sketch to Google Poly
 
 1. Open the Upload panel by choosing the cloud icon near the Tilt Brush logo.
