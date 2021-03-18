@@ -5190,6 +5190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be4a5da85d8bca24e9eaf1ea39ba36ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useManualHeightOffset: 0
+  worldCenterTagName: 
   cameraOffset: {fileID: 8475500293205437308}
   lineRenderersToScaleWithPlayer:
   - {fileID: 1893410758439177893}
