@@ -67,11 +67,14 @@ namespace Komodo.Runtime
             {
                 BeginPlayerHeightCalibration();
 
+                floorHeightDisplay.SetActive(true);
+
                 return;
             }
 
             if (Input.GetKeyDown(KeyCode.H) && isCalibratingHeight)
             {
+                floorHeightDisplay.SetActive(false);
                 
                 EndPlayerHeightCalibration();
 
@@ -81,7 +84,7 @@ namespace Komodo.Runtime
             if (isCalibratingHeight) {
                 minYOfHands = GetMinimumYPositionOfHands(leftHand, rightHand);
 
-                floorHeightDisplay.transform.position = new Vector3(0, minYOfHands, 0);
+                floorHeightDisplay.transform.position = new Vector3(xrPlayer.position.x, minYOfHands, xrPlayer.position.z);
             }
         }
         
@@ -325,7 +328,7 @@ namespace Komodo.Runtime
                 return downFromAboveHitInfo.point.y;
             }
 
-            Debug.LogError($"Could now find terrain below player or below  {globalHeight}m above the player. Make sure your layer mask is valid and that there are objets on that layer. Proceeding anyways and returning '0' for the height offset.");
+            Debug.LogError($"Could now find terrain below player or below  {globalHeight}m above the player. Make sure your layer mask is valid and that there are objects on that layer. Proceeding anyways and returning '0' for the height offset.");
 
             return 0.0f;
         }
