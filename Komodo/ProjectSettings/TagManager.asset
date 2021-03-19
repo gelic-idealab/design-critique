@@ -21,7 +21,7 @@ TagManager:
   - EventSystemDesktop
   - Drawing
   - MenuUI
-  - WorldCenter
+  - PlayerSpawnCenter
   layers:
   - Default
   - TransparentFX

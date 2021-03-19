@@ -578,7 +578,7 @@ PrefabInstance:
     - target: {fileID: 8540318072288940897, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 510.65933
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8843416275513056039, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
@@ -723,7 +723,7 @@ PrefabInstance:
     - target: {fileID: 8843416276162889463, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 253.26373
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8843416276411158944, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
@@ -2292,7 +2292,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1717507324}
         m_TargetAssemblyTypeName: Komodo.Runtime.TeleportPlayer, Komodo.Runtime
-        m_MethodName: SetWorldCenter
+        m_MethodName: SetPlayerSpawnCenter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

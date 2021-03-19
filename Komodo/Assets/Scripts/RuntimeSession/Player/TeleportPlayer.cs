@@ -12,9 +12,9 @@ namespace Komodo.Runtime
     {
         public bool useManualHeightOffset = false;
 
-        public string worldCenterTagName = "WorldCenter";
+        public string playerSpawnCenterTag = "PlayerSpawnCenter";
 
-        private Transform worldCenter;
+        private Transform currentSpawnCenter;
 
         private Transform cameraRootTransform;
 
@@ -40,7 +40,7 @@ namespace Komodo.Runtime
 
             currentScale = 1;
 
-            SetWorldCenter();
+            SetPlayerSpawnCenter();
         }
         
         public void Awake()
@@ -63,53 +63,59 @@ namespace Komodo.Runtime
             }
         }
 
-        public void TempTest ()
+        /**
+        * Finds a gameObject whose Transform represents the center of the circle
+        * where players may spawn.  Use this, for example, on each scene load 
+        * to set the new additive scene's spawn center correctly.
+        * 
+        * Importantly, this will help set the y-height 
+        * of the floor for an arbitrary scene. To use this, in each additive 
+        * scene, create an empty, place it at the floor of the environment 
+        * where you want players to spawn, and tag the empty with 
+        * <playerSpawnCenterTag>.
+        */
+        public void SetPlayerSpawnCenter ()
         {
-            List<GameObject> allObjects = new List<GameObject>();
-            UnityEngine.SceneManagement.Scene activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-            Debug.Log($"world {activeScene.name}");
-            activeScene.GetRootGameObjects( allObjects );
-            foreach(GameObject obj in allObjects) {
-                if(obj.tag == "WorldCenter") {
-                    Debug.Log($"World {obj.name}");
-                }
-            }
-        }
+            const string generatedSpawnCenterName = "PlayerSpawnCenter";
 
-        public void SetWorldCenter ()
-        {
-            TempTest();
+            var spawnCentersFound = GameObject.FindGameObjectsWithTag(playerSpawnCenterTag);
 
-            var worldCenters = GameObject.FindGameObjectsWithTag(worldCenterTagName);
+            // If we found gameObjects with the right tag,
+            // pick the first one that's different from the current one
 
-            for (int i = 0; i < worldCenters.Length; i += 1) {
-                //Debug.Log($"WORLD {worldCenters[i].name}");
+            for (int i = 0; i < spawnCentersFound.Length; i += 1) {
 
-                if (worldCenters[i].name != worldCenter.gameObject.name) {
+                if (spawnCentersFound[i] != currentSpawnCenter.gameObject) {
 
-                    //Debug.Log($"New World Center found: {worldCenters[i].name}");
+                    //Debug.Log($"[PlayerSpawnCenter] New center found: {spawnCentersFound[i].name}");
 
-                    worldCenter = worldCenters[i].transform;
+                    currentSpawnCenter = spawnCentersFound[i].transform;
 
                     return;
                 }
             }
 
-            if (worldCenters.Length == 0 && worldCenter == null) {
-                //Debug.LogError($"No GameObjects with tag {worldCenterTagName} were found. Generating one with position <0, 0, 0>.");
+            // If we didn't find any new gameObjects with the right tag,
+            // and there's no existing one, make a new one with default settings
 
-                var generatedWorldCenter = new GameObject("GeneratedWorldCenter");
+            if (spawnCentersFound.Length == 0 && currentSpawnCenter == null) {
+                //Debug.LogWarning($"[PlayerSpawnCenter] No GameObjects with tag {playerSpawnCenterTag} were found. Generating one with position <0, 0, 0>.");
 
-                generatedWorldCenter.tag = worldCenterTagName;
+                var generatedSpawnCenter = new GameObject(generatedSpawnCenterName);
 
-                generatedWorldCenter.transform.SetParent(null);
+                generatedSpawnCenter.tag = playerSpawnCenterTag;
 
-                worldCenter = generatedWorldCenter.transform;
+                generatedSpawnCenter.transform.SetParent(null);
+
+                currentSpawnCenter = generatedSpawnCenter.transform;
 
                 return;
             }
 
-            //Debug.Log($"Using existing World Center: {worldCenter.gameObject.name}");
+            // If no gameObjects with the right tag were found, and there is an 
+            // existing one, use the existing one. 
+
+            //Debug.Log($"[PlayerSpawnCenter] Using existing Player Spawn Center: {currentSpawnCenter.gameObject.name}");
         }
 
         /// <summary>
@@ -140,7 +146,7 @@ namespace Komodo.Runtime
 
         public void SetPlayerPositionToHome2 () 
         {
-            desktopCameraTransform.position = worldCenter.position;
+            desktopCameraTransform.position = currentSpawnCenter.position;
         }
         
         public void UpdatePlayerPosition(Position newData)
