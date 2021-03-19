@@ -5191,7 +5191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useManualHeightOffset: 0
-  worldCenterTagName: 
+  playerSpawnCenterTag: PlayerSpawnCenter
   cameraOffset: {fileID: 8475500293205437308}
   lineRenderersToScaleWithPlayer:
   - {fileID: 1893410758439177893}

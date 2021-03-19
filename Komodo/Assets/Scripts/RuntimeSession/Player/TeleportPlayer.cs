@@ -16,7 +16,7 @@ namespace Komodo.Runtime
 
         private Transform currentSpawnCenter;
 
-        private Transform cameraRootTransform;
+        private Transform cameraSetRoot;
 
         //move desktopPlayer
         private Transform desktopCameraTransform;
@@ -30,7 +30,21 @@ namespace Komodo.Runtime
 
         float originalHeight;
 
+        public float manualYOffset = 0.0f;
+
         float originalFixedDeltaTime;
+
+        public LayerMask layerMask;
+
+        public bool isCalibratingHeight = false;
+
+        public GameObject tempLeftHand;
+
+        public GameObject tempRightHand;
+
+        public float minYOfHands;
+
+        public GameObject floorHeightDisplay;
 
         public void Start()
         {
@@ -41,14 +55,41 @@ namespace Komodo.Runtime
             currentScale = 1;
 
             SetPlayerSpawnCenter();
+
+            minYOfHands = tempLeftHand.transform.position.y;
+        }
+
+        public void Update () {
+            //TODO delete whole function
+
+            if (Input.GetKeyDown(KeyCode.H) && !isCalibratingHeight) 
+            {
+                BeginPlayerHeightCalibration();
+
+                return;
+            }
+
+            if (Input.GetKeyDown(KeyCode.H) && isCalibratingHeight)
+            {
+                
+                EndPlayerHeightCalibration();
+
+                return;
+            }
+
+            if (isCalibratingHeight) {
+                minYOfHands = GetMinimumYPositionOfHands(tempLeftHand, tempRightHand);
+
+                floorHeightDisplay.transform.position = new Vector3(0, minYOfHands, 0);
+            }
         }
         
         public void Awake()
         {
-            if (!cameraRootTransform) 
+            if (!cameraSetRoot) 
             {
                 //get child to transform, we keep the webxrcameraset at origin
-                cameraRootTransform = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
+                cameraSetRoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
             }
             
             //Get xr player to change position
@@ -128,11 +169,12 @@ namespace Komodo.Runtime
             xrPlayer.position = pos;
             xrPlayer.localRotation = rot;
         }
+        
         public void SetXRAndSpectatorRotation(Quaternion rot)
         {
             xrPlayer.localRotation = rot;
 
-            cameraRootTransform.localRotation = rot;
+            cameraSetRoot.localRotation = rot;
         }
 
         public void SetPlayerPositionToHome()
@@ -146,7 +188,11 @@ namespace Komodo.Runtime
 
         public void SetPlayerPositionToHome2 () 
         {
-            desktopCameraTransform.position = currentSpawnCenter.position;
+            var homePosition = currentSpawnCenter.position;
+
+            desktopCameraTransform.position = homePosition;
+
+            UpdatePlayerPosition2(new Position { pos = homePosition });
         }
         
         public void UpdatePlayerPosition(Position newData)
@@ -156,11 +202,164 @@ namespace Komodo.Runtime
             finalPosition.y = newData.pos.y + cameraOffset.cameraYOffset;//defaultPlayerInitialHeight; //+ WebXR.WebXRManager.Instance.DefaultHeight;
 
 //#if UNITY_EDITOR
-            cameraRootTransform.position = finalPosition;
+            cameraSetRoot.position = finalPosition;
 //#elif UNITY_WEBGL
             xrPlayer.position = finalPosition;
 //#endif
             //  mainPlayer_RootTransformData.pos = finalPosition;
+        }
+
+        public void UpdatePlayerPosition2(Position newData)
+        {
+            UpdatePlayerXZPosition(newData.pos.x, newData.pos.z);
+
+            UpdatePlayerYPosition(newData.pos.y);
+        }
+
+        public void UpdatePlayerXZPosition(float x, float z) 
+        {
+            var finalPosition = xrPlayer.position;
+
+            finalPosition.x = x;
+
+            finalPosition.z = z;
+
+            cameraSetRoot.position = finalPosition;
+
+            xrPlayer.position = finalPosition;
+        }
+
+        public void UpdatePlayerYPosition ()
+        {
+            UpdatePlayerYPosition(xrPlayer.position.y);
+        }
+
+        public void UpdatePlayerYPosition (float y) 
+        {
+            var finalPosition = xrPlayer.position;
+
+            finalPosition.y = y;
+
+            if (useManualHeightOffset) 
+            {
+                finalPosition.y += manualYOffset;
+            }
+
+            cameraSetRoot.position = finalPosition;
+
+            xrPlayer.position = finalPosition;
+        }
+
+        public void SetManualYOffset (float y)
+        {
+            manualYOffset = y; 
+            //TODO -- fix the above line. Currently it bumps the camera up by a little bit every time. 
+        }
+
+        public void BeginPlayerHeightCalibration () 
+        {
+            Debug.Log("Beginning player height calibration.");
+
+            ShowHeightCalibrationSafetyWarning();
+
+            bool useKnee = OfferKneeBasedHeightCalibration();
+
+            if (useKnee) 
+            {
+                return;
+            }
+
+            isCalibratingHeight = true;
+        }
+
+        public void ShowHeightCalibrationSafetyWarning ()
+        {
+            //TODO implement
+        }
+
+        public bool OfferKneeBasedHeightCalibration ()
+        {
+            return false; //TODO -- add option so user doesn't have to bend down to reach the floor
+        }
+
+        public void EndPlayerHeightCalibration ()
+        {
+            if (!isCalibratingHeight)
+            {
+                return;
+            }
+
+            Debug.Log("Ending player height calibration");
+
+            var handHeight = minYOfHands;
+
+            var terrainHeight = ComputeGlobalYPositionOfTerrainBelowPlayer();
+
+            var newHeightOffset = terrainHeight - handHeight;
+
+            Debug.Log($"terrain height: {terrainHeight} / handHeight: {handHeight} / newOffset: {newHeightOffset}");
+
+            SetManualYOffset(newHeightOffset);
+
+            UpdatePlayerYPosition();
+
+            minYOfHands = float.MaxValue;
+
+            isCalibratingHeight = false;
+        }
+
+        public float ComputeGlobalYPositionOfTerrainBelowPlayer ()
+        {
+            float globalHeight = 10f;
+
+            if (Physics.Raycast(xrPlayer.position, Vector3.down, out RaycastHit downHitInfo, layerMask))
+            {
+                return downHitInfo.point.y;
+            }
+            
+            Debug.LogWarning($"Could not find terrain below player. Trying to find it from {globalHeight}m above the player.");
+
+            var bumpedPlayerPosition = xrPlayer.position;
+
+            bumpedPlayerPosition.y += globalHeight;
+            
+            if (Physics.Raycast(bumpedPlayerPosition, Vector3.down, out RaycastHit downFromAboveHitInfo, layerMask))
+            {
+                return downFromAboveHitInfo.point.y;
+            }
+
+            Debug.LogError($"Could now find terrain below player or below  {globalHeight}m above the player. Make sure your layer mask is valid and that there are objets on that layer. Proceeding anyways and returning '0' for the height offset.");
+
+            return 0.0f;
+        }
+
+        public float GetGlobalYPositionOfHand (GameObject hand) 
+        {
+            return hand.transform.position.y;
+        }
+
+        public float GetMinimumYPositionOfHands (GameObject handL, GameObject handR) 
+        {
+            var curLeftY = handL.transform.position.y;
+
+            var curRightY = handR.transform.position.y;
+
+            if (curLeftY < curRightY && curLeftY < minYOfHands) 
+            {
+                return curLeftY;
+            }
+
+            if (curRightY < curLeftY && curRightY < minYOfHands)
+            {
+                return curRightY;
+            }
+
+            return minYOfHands;
+        }
+
+        public float GetGlobalYPositionOfHead (GameObject head)
+        {
+            return head.transform.position.y;
         }
 
         /// <summary>

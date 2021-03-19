@@ -98,7 +98,7 @@ namespace Komodo.Runtime
 
             isUpdating = true;
 
-            teleportPlayer.UpdatePlayerHeight(teleportPlayer.cameraOffset.cameraYOffset);
+            //teleportPlayer.BeginPlayerHeightCalibration(left hand? right hand?); //TODO turn back on and ask for handedness 
         }
 
         public void Update()
