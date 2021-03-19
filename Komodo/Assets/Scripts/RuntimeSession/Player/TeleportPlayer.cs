@@ -36,15 +36,16 @@ namespace Komodo.Runtime
 
         public LayerMask layerMask;
 
-        public bool isCalibratingHeight = false;
+        private bool isCalibratingHeight = false;
 
-        public GameObject tempLeftHand;
+        public GameObject leftHand;
 
-        public GameObject tempRightHand;
-
-        public float minYOfHands;
+        public GameObject rightHand;
 
         public GameObject floorHeightDisplay;
+
+        private float minYOfHands;
+
 
         public void Start()
         {
@@ -56,7 +57,7 @@ namespace Komodo.Runtime
 
             SetPlayerSpawnCenter();
 
-            minYOfHands = tempLeftHand.transform.position.y;
+            minYOfHands = leftHand.transform.position.y;
         }
 
         public void Update () {
@@ -78,7 +79,7 @@ namespace Komodo.Runtime
             }
 
             if (isCalibratingHeight) {
-                minYOfHands = GetMinimumYPositionOfHands(tempLeftHand, tempRightHand);
+                minYOfHands = GetMinimumYPositionOfHands(leftHand, rightHand);
 
                 floorHeightDisplay.transform.position = new Vector3(0, minYOfHands, 0);
             }
@@ -224,19 +225,12 @@ namespace Komodo.Runtime
 
             finalPosition.z = z;
 
-            cameraSetRoot.position = finalPosition;
-
             xrPlayer.position = finalPosition;
-        }
-
-        public void UpdatePlayerYPosition ()
-        {
-            UpdatePlayerYPosition(xrPlayer.position.y);
         }
 
         public void UpdatePlayerYPosition (float y) 
         {
-            var finalPosition = xrPlayer.position;
+            var finalPosition = cameraSetRoot.position;
 
             finalPosition.y = y;
 
@@ -246,8 +240,11 @@ namespace Komodo.Runtime
             }
 
             cameraSetRoot.position = finalPosition;
+        }
 
-            xrPlayer.position = finalPosition;
+        public void UpdatePlayerYPosition ()
+        {
+            UpdatePlayerYPosition(xrPlayer.position.y);
         }
 
         public void SetManualYOffset (float y)
