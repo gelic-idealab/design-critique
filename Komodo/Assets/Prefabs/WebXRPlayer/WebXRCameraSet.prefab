@@ -5200,6 +5200,7 @@ MonoBehaviour:
   - {fileID: 1893410758466198370}
   - {fileID: 1893410759598114427}
   - {fileID: 1893410758851799574}
+  manualYOffset: 0
 --- !u!114 &8475500293205437308
 MonoBehaviour:
   m_ObjectHideFlags: 0

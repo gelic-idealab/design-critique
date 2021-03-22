@@ -34,18 +34,6 @@ namespace Komodo.Runtime
 
         float originalFixedDeltaTime;
 
-        public LayerMask layerMask;
-
-        private bool isCalibratingHeight = false;
-
-        public GameObject leftHand;
-
-        public GameObject rightHand;
-
-        public GameObject floorHeightDisplay;
-
-        private float minYOfHands;
-
 
         public void Start()
         {
@@ -56,36 +44,6 @@ namespace Komodo.Runtime
             currentScale = 1;
 
             SetPlayerSpawnCenter();
-
-            minYOfHands = leftHand.transform.position.y;
-        }
-
-        public void Update () {
-            //TODO delete whole function
-
-            if (Input.GetKeyDown(KeyCode.H) && !isCalibratingHeight) 
-            {
-                BeginPlayerHeightCalibration();
-
-                floorHeightDisplay.SetActive(true);
-
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.H) && isCalibratingHeight)
-            {
-                floorHeightDisplay.SetActive(false);
-                
-                EndPlayerHeightCalibration();
-
-                return;
-            }
-
-            if (isCalibratingHeight) {
-                minYOfHands = GetMinimumYPositionOfHands(leftHand, rightHand);
-
-                floorHeightDisplay.transform.position = new Vector3(xrPlayer.position.x, minYOfHands, xrPlayer.position.z);
-            }
         }
         
         public void Awake()
@@ -106,6 +64,11 @@ namespace Komodo.Runtime
             {
                 desktopCameraTransform = GameObject.FindGameObjectWithTag("DesktopCamera").transform;
             }
+        }
+
+        public Transform GetXRPlayer () 
+        {
+            return xrPlayer;
         }
 
         /**
@@ -256,110 +219,11 @@ namespace Komodo.Runtime
             //TODO -- fix the above line. Currently it bumps the camera up by a little bit every time. 
         }
 
-        public void BeginPlayerHeightCalibration () 
+        public void SetYOffsetAndUpdate (float y) 
         {
-            Debug.Log("Beginning player height calibration.");
-
-            ShowHeightCalibrationSafetyWarning();
-
-            bool useKnee = OfferKneeBasedHeightCalibration();
-
-            if (useKnee) 
-            {
-                return;
-            }
-
-            isCalibratingHeight = true;
-        }
-
-        public void ShowHeightCalibrationSafetyWarning ()
-        {
-            //TODO implement
-        }
-
-        public bool OfferKneeBasedHeightCalibration ()
-        {
-            return false; //TODO -- add option so user doesn't have to bend down to reach the floor
-        }
-
-        public void EndPlayerHeightCalibration ()
-        {
-            if (!isCalibratingHeight)
-            {
-                return;
-            }
-
-            Debug.Log("Ending player height calibration");
-
-            var handHeight = minYOfHands;
-
-            var terrainHeight = ComputeGlobalYPositionOfTerrainBelowPlayer();
-
-            var newHeightOffset = terrainHeight - handHeight;
-
-            Debug.Log($"terrain height: {terrainHeight} / handHeight: {handHeight} / newOffset: {newHeightOffset}");
-
-            SetManualYOffset(newHeightOffset);
+            SetManualYOffset(y);
 
             UpdatePlayerYPosition();
-
-            minYOfHands = float.MaxValue;
-
-            isCalibratingHeight = false;
-        }
-
-        public float ComputeGlobalYPositionOfTerrainBelowPlayer ()
-        {
-            float globalHeight = 10f;
-
-            if (Physics.Raycast(xrPlayer.position, Vector3.down, out RaycastHit downHitInfo, layerMask))
-            {
-                return downHitInfo.point.y;
-            }
-            
-            Debug.LogWarning($"Could not find terrain below player. Trying to find it from {globalHeight}m above the player.");
-
-            var bumpedPlayerPosition = xrPlayer.position;
-
-            bumpedPlayerPosition.y += globalHeight;
-            
-            if (Physics.Raycast(bumpedPlayerPosition, Vector3.down, out RaycastHit downFromAboveHitInfo, layerMask))
-            {
-                return downFromAboveHitInfo.point.y;
-            }
-
-            Debug.LogError($"Could now find terrain below player or below  {globalHeight}m above the player. Make sure your layer mask is valid and that there are objects on that layer. Proceeding anyways and returning '0' for the height offset.");
-
-            return 0.0f;
-        }
-
-        public float GetGlobalYPositionOfHand (GameObject hand) 
-        {
-            return hand.transform.position.y;
-        }
-
-        public float GetMinimumYPositionOfHands (GameObject handL, GameObject handR) 
-        {
-            var curLeftY = handL.transform.position.y;
-
-            var curRightY = handR.transform.position.y;
-
-            if (curLeftY < curRightY && curLeftY < minYOfHands) 
-            {
-                return curLeftY;
-            }
-
-            if (curRightY < curLeftY && curRightY < minYOfHands)
-            {
-                return curRightY;
-            }
-
-            return minYOfHands;
-        }
-
-        public float GetGlobalYPositionOfHead (GameObject head)
-        {
-            return head.transform.position.y;
         }
 
         /// <summary>

@@ -618,7 +618,7 @@ PrefabInstance:
     - target: {fileID: 8540318072288940897, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 450.05646
+      value: 536.58154
       objectReference: {fileID: 0}
     - target: {fileID: 8756860252253593013, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
@@ -768,7 +768,7 @@ PrefabInstance:
     - target: {fileID: 8843416276162889463, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 229.02258
+      value: 263.6326
       objectReference: {fileID: 0}
     - target: {fileID: 8843416276411158944, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
@@ -1401,6 +1401,7 @@ Transform:
   - {fileID: 1858107718}
   - {fileID: 6336768844094401975}
   - {fileID: 2293271301178755395}
+  - {fileID: 1429055715}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1970,6 +1971,113 @@ Transform:
   m_Father: {fileID: 273717564}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1429055714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429055715}
+  - component: {fileID: 1429055716}
+  m_Layer: 0
+  m_Name: HeightCalibration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1429055715
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429055714}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 275040465}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429055716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429055714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b74e99ae2e70c49b71501d1eaae53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportPlayer: {fileID: 1717507324}
+  onStartedCalibration:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1492960246}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onCalibrationUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1492960247}
+        m_TargetAssemblyTypeName: VirtualFloor, Assembly-CSharp
+        m_MethodName: SetPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFinishedCalibration:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1492960246}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1717507324}
+        m_TargetAssemblyTypeName: Komodo.Runtime.TeleportPlayer, Komodo.Runtime
+        m_MethodName: SetYOffsetAndUpdate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  leftHand: {fileID: 1203216071}
+  rightHand: {fileID: 2136809035}
+  floorHeightDisplayCenter: {x: 0, y: 0, z: 0}
 --- !u!1 &1492960246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,6 +2089,7 @@ GameObject:
   - component: {fileID: 1492960250}
   - component: {fileID: 1492960249}
   - component: {fileID: 1492960248}
+  - component: {fileID: 1492960247}
   m_Layer: 0
   m_Name: VirtualFloor
   m_TagString: Untagged
@@ -1988,6 +2097,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1492960247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492960246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9dbddb4dd2a1b9449e678e97af9fcb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1492960248
 MeshRenderer:
   m_ObjectHideFlags: 0

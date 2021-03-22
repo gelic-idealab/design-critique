@@ -42,14 +42,14 @@ namespace Komodo.Runtime
 
         }
 
-        public void OnBeginHeightCalibrationButtonClicked (TeleportPlayer telPlayer)
+        public void OnBeginHeightCalibrationButtonClicked (HeightCalibration heightCalibration)
         {
-            telPlayer.BeginPlayerHeightCalibration();
+            heightCalibration.StartCalibration();
         }
 
-        public void OnEndHeightCalibrationButtonClicked (TeleportPlayer telPlayer)
+        public void OnEndHeightCalibrationButtonClicked (HeightCalibration heightCalibration)
         {
-            telPlayer.EndPlayerHeightCalibration();
+            heightCalibration.EndCalibration();
         }
 
         public void OnPlayerHeightSliderChanged (TeleportPlayer telPlayer, float value) 
