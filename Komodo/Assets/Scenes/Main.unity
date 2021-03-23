@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 54409485}
   - component: {fileID: 54409486}
   m_Layer: 0
-  m_Name: ControllerDoubleTapState
+  m_Name: ControllerState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1067,7 +1067,7 @@ PrefabInstance:
     - target: {fileID: 8540318072288940897, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 531.9623
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8756860252253593013, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
@@ -1247,7 +1247,7 @@ PrefabInstance:
     - target: {fileID: 8843416276162889463, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 261.7849
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8843416276411158944, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
@@ -2005,7 +2005,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274798761}
   m_Layer: 0
-  m_Name: XRControllerFuncionality
+  m_Name: XRControls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2037,7 +2037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275040465}
   m_Layer: 0
-  m_Name: UITabs
+  m_Name: VisibleManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2073,7 +2073,7 @@ GameObject:
   - component: {fileID: 426946537}
   - component: {fileID: 426946538}
   m_Layer: 0
-  m_Name: DrawingManager
+  m_Name: Drawing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2250,7 +2250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 563281559}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: InvisibleManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3201,7 +3201,7 @@ GameObject:
   - component: {fileID: 1858107718}
   - component: {fileID: 4313097740151244515}
   m_Layer: 0
-  m_Name: Undo/RedoManager
+  m_Name: UndoRedo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3437,7 +3437,7 @@ GameObject:
   - component: {fileID: 2293271301178755395}
   - component: {fileID: 2293271301178755396}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3568,7 +3568,7 @@ GameObject:
   - component: {fileID: 6336768844094401960}
   - component: {fileID: 3536748085430673266}
   m_Layer: 0
-  m_Name: ImportManager
+  m_Name: ModelImport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
