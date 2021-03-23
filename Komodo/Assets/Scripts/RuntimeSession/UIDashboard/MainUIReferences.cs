@@ -10,8 +10,6 @@ namespace Komodo.Runtime
 
         [ShowOnly] public GameObject player;
 
-        public Slider playerHeightSlider;
-
         public Slider playerScaleSlider;
 
         [Header("Button References")]
@@ -50,12 +48,6 @@ namespace Komodo.Runtime
         public void OnEndHeightCalibrationButtonClicked (HeightCalibration heightCalibration)
         {
             heightCalibration.EndCalibration();
-        }
-
-        public void OnPlayerHeightSliderChanged (TeleportPlayer telPlayer, float value) 
-        {
-            telPlayer.SetManualYOffset(value);
-            telPlayer.UpdatePlayerYPosition();
         }
 
         public void OnRecenterButtonClicked (TeleportPlayer telPlayer) 
@@ -111,8 +103,6 @@ namespace Komodo.Runtime
             {
                 if (player.TryGetComponent(out TeleportPlayer telPlayer))
                 {
-                    playerHeightSlider.onValueChanged.AddListener((val) => OnPlayerHeightSliderChanged(telPlayer, val));
-
                     recenterButton.onClick.AddListener(() => OnRecenterButtonClicked(telPlayer));
                 }
 
