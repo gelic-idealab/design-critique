@@ -219,11 +219,26 @@ namespace Komodo.Runtime
             //TODO -- fix the above line. Currently it bumps the camera up by a little bit every time. 
         }
 
+        public float GetManualYOffset (float y) 
+        {
+            return manualYOffset;
+        }
+
         public void SetYOffsetAndUpdate (float y) 
         {
             SetManualYOffset(y);
 
             UpdatePlayerYPosition();
+        }
+
+        public void BumpPlayerUp (float bumpAmount) 
+        {
+            SetYOffsetAndUpdate(manualYOffset + bumpAmount);
+        }
+
+        public void BumpPlayerDown (float bumpAmount)
+        {
+            SetYOffsetAndUpdate(manualYOffset - bumpAmount);
         }
 
         /// <summary>

@@ -31,6 +31,12 @@ namespace Komodo.Runtime
 
         public UnityEvent_Float onFinishedCalibration;
 
+        public UnityEvent_Float onBumpHeightUp;
+
+        public UnityEvent_Float onBumpHeightDown;
+
+        public float bumpAmount = 0.2f; //meters
+
         private Transform xrPlayer;
 
         private Vector3 floorHeightDisplayCenter;
@@ -87,6 +93,16 @@ namespace Komodo.Runtime
             }
         }
         
+
+        public void BumpHeightUp () 
+        {
+            onBumpHeightUp.Invoke(bumpAmount);
+        }
+
+        public void BumpHeightDown ()
+        {
+            onBumpHeightDown.Invoke(bumpAmount);
+        }
 
         public void StartCalibration () 
         {
