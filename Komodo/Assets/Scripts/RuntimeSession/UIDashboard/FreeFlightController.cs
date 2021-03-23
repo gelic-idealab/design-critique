@@ -35,7 +35,7 @@ namespace Komodo.Runtime
 
         private Transform desktopCamera;
 
-        private Transform xrCamera;
+        private Transform playspace;
 
         private float minimumX = -360f;
         private float maximumX = 360f;
@@ -81,7 +81,7 @@ namespace Komodo.Runtime
             //wait for our ui to be set up before we allow user to move around with camera
             isUpdating = false;
 
-            xrCamera = GameObject.FindWithTag("XRCamera").transform;
+            playspace = GameObject.FindWithTag("XRCamera").transform;
             desktopCamera = GameObject.FindWithTag("DesktopCamera").transform;//transform;
 
             originalRotation = desktopCamera.localRotation;
@@ -157,7 +157,7 @@ namespace Komodo.Runtime
                 //set desktop camera the same as the xr camera on xr exit
                 curRotationX = 0f;
 
-                desktopCamera.position = xrCamera.position;
+                desktopCamera.position = playspace.position;
 
                 desktopCamera.localRotation = Quaternion.Euler(new Vector3(0, curRotationY, 0));
 

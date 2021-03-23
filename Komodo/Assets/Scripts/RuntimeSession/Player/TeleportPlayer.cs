@@ -12,16 +12,37 @@ namespace Komodo.Runtime
     {
         public bool useManualHeightOffset = false;
 
+        public string playerSetTag = "Player";
+
+        public string cameraSetTag = "CameraSet";
+
+        public string leftEyeTag = "LeftEye";
+
+        public string rightEyeTag = "RightEye";
+
+        public string playspaceTag = "XRCamera";
+
+        public string spectatorCameraTag = "DesktopCamera";
+
         public string playerSpawnCenterTag = "PlayerSpawnCenter";
+
+        private Transform playerSet;
+
+        private Transform cameraSet;
+
+        private Transform spectatorCamera;
+
+        private Transform playspace;
+
+        private Transform rightEye;
+
+        private Transform leftEye;
+
+        private Transform centerEye;
 
         private Transform currentSpawnCenter;
 
-        private Transform cameraSetRoot;
-
-        //move desktopPlayer
-        private Transform desktopCameraTransform;
-        //move xrPlayer
-        private Transform xrPlayer;
+        private bool justBumped = false;
 
         public CameraOffset cameraOffset;
 
@@ -48,27 +69,46 @@ namespace Komodo.Runtime
         
         public void Awake()
         {
-            if (!cameraSetRoot) 
+            if (!playerSet) 
             {
                 //get child to transform, we keep the webxrcameraset at origin
-                cameraSetRoot = GameObject.FindGameObjectWithTag("Player").transform.GetChild(0);
+                playerSet = GameObject.FindGameObjectWithTag(playerSetTag).transform.GetChild(0);
+            }
+
+            if (!cameraSet) 
+            {
+                cameraSet = GameObject.FindGameObjectWithTag(cameraSetTag).transform;
             }
             
-            //Get xr player to change position
-            if (!xrPlayer) 
+            if (!playspace) 
             {
-                xrPlayer = GameObject.FindGameObjectWithTag("XRCamera").transform;
+                playspace = GameObject.FindGameObjectWithTag(playspaceTag).transform;
+            }
+
+            if (!leftEye)
+            {
+                leftEye = GameObject.FindGameObjectWithTag(leftEyeTag).transform;
+            }
+
+            if (!rightEye)
+            {
+                rightEye = GameObject.FindGameObjectWithTag(rightEyeTag).transform;
+            }
+
+            if (!centerEye)
+            {
+                centerEye = leftEye;
             }
             
-            if (!desktopCameraTransform)
+            if (!spectatorCamera)
             {
-                desktopCameraTransform = GameObject.FindGameObjectWithTag("DesktopCamera").transform;
+                spectatorCamera = GameObject.FindGameObjectWithTag(spectatorCameraTag).transform;
             }
         }
 
         public Transform GetXRPlayer () 
         {
-            return xrPlayer;
+            return playspace;
         }
 
         /**
@@ -133,22 +173,37 @@ namespace Komodo.Runtime
         /// <param name="rot"></param>
         public void SetXRPlayerPositionAndLocalRotation(Vector3 pos, Quaternion rot)
         {
-            xrPlayer.position = pos;
-            xrPlayer.localRotation = rot;
+            playspace.position = pos;
+
+            playspace.localRotation = rot;
         }
         
         public void SetXRAndSpectatorRotation(Quaternion rot)
         {
-            xrPlayer.localRotation = rot;
+            playspace.localRotation = rot;
 
-            cameraSetRoot.localRotation = rot;
+            playerSet.localRotation = rot;
+        }
+
+        public void SnapTurnLeft (float degrees)
+        {
+            UpdateCenterEye();
+
+            playspace.RotateAround(centerEye.position, Vector3.up, degrees);
+        }
+
+        public void SnapTurnRight (float degrees)
+        {
+            UpdateCenterEye();
+
+            playspace.RotateAround(centerEye.position, Vector3.up, -degrees);
         }
 
         public void SetPlayerPositionToHome()
         {
             var homePos = (Vector3.up * cameraOffset.cameraYOffset); //SceneManagerExtensions.Instance.anchorPositionInNewScene.position +//defaultPlayerInitialHeight);
 
-            desktopCameraTransform.position = homePos;//UIManager.Instance.anchorPositionInNewScene.position;//Vector3.up * defaultPlayerInitialHeight;
+            spectatorCamera.position = homePos;//UIManager.Instance.anchorPositionInNewScene.position;//Vector3.up * defaultPlayerInitialHeight;
 
             UpdatePlayerPosition(new Position { pos = homePos });
         }
@@ -157,7 +212,7 @@ namespace Komodo.Runtime
         {
             var homePosition = currentSpawnCenter.position;
 
-            desktopCameraTransform.position = homePosition;
+            spectatorCamera.position = homePosition;
 
             UpdatePlayerPosition2(new Position { pos = homePosition });
         }
@@ -169,76 +224,126 @@ namespace Komodo.Runtime
             finalPosition.y = newData.pos.y + cameraOffset.cameraYOffset;//defaultPlayerInitialHeight; //+ WebXR.WebXRManager.Instance.DefaultHeight;
 
 //#if UNITY_EDITOR
-            cameraSetRoot.position = finalPosition;
+            playerSet.position = finalPosition;
 //#elif UNITY_WEBGL
-            xrPlayer.position = finalPosition;
+            playspace.position = finalPosition;
 //#endif
             //  mainPlayer_RootTransformData.pos = finalPosition;
         }
 
-        public void UpdatePlayerPosition2(Position newData)
+        public void UpdatePlayerPosition2 (Position newData)
         {
+            UpdateCenterEye();
+
             UpdatePlayerXZPosition(newData.pos.x, newData.pos.z);
 
             UpdatePlayerYPosition(newData.pos.y);
         }
 
-        public void UpdatePlayerXZPosition(float x, float z) 
+        public void UpdatePlayerPosition (Transform otherTransform)
         {
-            var finalPosition = xrPlayer.position;
-
-            finalPosition.x = x;
-
-            finalPosition.z = z;
-
-            xrPlayer.position = finalPosition;
+            playspace.position = otherTransform.position;
         }
 
-        public void UpdatePlayerYPosition (float y) 
-        {
-            var finalPosition = cameraSetRoot.position;
+        public void UpdateCenterEye () 
+        { 
+            centerEye.position = (leftEye.position + rightEye.position) / 2;
 
-            finalPosition.y = y;
+            centerEye.rotation = leftEye.rotation;
+        }
+
+        public void UpdatePlayerXZPosition (float teleportX, float teleportZ) 
+        {
+            var finalPlayspacePosition = playspace.position;
+
+            float deltaX = teleportX - centerEye.position.x;
+
+            float deltaZ = teleportZ - centerEye.position.z;
+
+            finalPlayspacePosition.x += deltaX;
+
+            finalPlayspacePosition.z += deltaZ;
+
+            playspace.position = finalPlayspacePosition;
+        }
+
+        public void UpdatePlayerXZPosition (Transform otherTransform) 
+        {
+            var finalPlayspacePosition = playspace.position;
+
+            finalPlayspacePosition.x = otherTransform.position.x;
+
+            finalPlayspacePosition.z = otherTransform.position.z;
+
+            playspace.position = finalPlayspacePosition;
+        }
+
+        public void UpdatePlayerYPosition (float teleportY) 
+        {
+            if (justBumped) 
+            {
+                justBumped = false;
+
+                return;
+            }
+
+            Vector3 finalPlayspacePosition = playspace.position;
+
+            finalPlayspacePosition.y = teleportY;
 
             if (useManualHeightOffset) 
             {
-                finalPosition.y += manualYOffset;
+
+                finalPlayspacePosition.y += manualYOffset;
+
+                justBumped = true;
             }
-
-            cameraSetRoot.position = finalPosition;
-        }
-
-        public void UpdatePlayerYPosition ()
-        {
-            UpdatePlayerYPosition(xrPlayer.position.y);
+            
+            playspace.position = finalPlayspacePosition;
         }
 
         public void SetManualYOffset (float y)
         {
-            manualYOffset = y; 
-            //TODO -- fix the above line. Currently it bumps the camera up by a little bit every time. 
+            manualYOffset = y;
         }
 
-        public float GetManualYOffset (float y) 
+        public void BumpYAndUpdateOffset (float deltaY)
         {
-            return manualYOffset;
+            justBumped = true;
+
+            Vector3 finalPlayspacePosition = playspace.position;
+
+            finalPlayspacePosition.y += deltaY;
+
+            playspace.position = finalPlayspacePosition;
+
+            SetManualYOffset(manualYOffset + deltaY);
         }
 
-        public void SetYOffsetAndUpdate (float y) 
+        public void BumpPlayerUpAndUpdate (float bumpAmount) 
         {
-            SetManualYOffset(y);
+            justBumped = true; 
+            
+            Vector3 finalPlayspacePosition = playspace.position;
 
-            UpdatePlayerYPosition();
+            finalPlayspacePosition.y += bumpAmount;
+
+            playspace.position = finalPlayspacePosition;
+            
+            SetManualYOffset(manualYOffset + bumpAmount);
         }
 
-        public void BumpPlayerUp (float bumpAmount) 
+        public void BumpPlayerDownAndUpdate (float bumpAmount)
         {
-            SetYOffsetAndUpdate(manualYOffset + bumpAmount);
-        }
+            justBumped = true; 
+            
+            Vector3 finalPlayspacePosition = playspace.position;
 
-        public void BumpPlayerDown (float bumpAmount)
-        {
-            SetYOffsetAndUpdate(manualYOffset - bumpAmount);
+            finalPlayspacePosition.y -= bumpAmount;
+
+            playspace.position = finalPlayspacePosition;
+
+            SetManualYOffset(manualYOffset - bumpAmount);
         }
 
         /// <summary>
@@ -265,14 +370,14 @@ namespace Komodo.Runtime
             var ratioScale = newScale / 1;
             var offsetFix = ratioScale * 1.8f;
 
-            if (!desktopCameraTransform)
-                desktopCameraTransform = GameObject.FindGameObjectWithTag("DesktopCamera").transform;
+            if (!spectatorCamera)
+                spectatorCamera = GameObject.FindGameObjectWithTag("DesktopCamera").transform;
 
-            if (!xrPlayer)
-                xrPlayer = GameObject.FindGameObjectWithTag("XRCamera").transform;
+            if (!playspace)
+                playspace = GameObject.FindGameObjectWithTag("XRCamera").transform;
 
-            desktopCameraTransform.transform.localScale = Vector3.one * newScale;
-            xrPlayer.transform.localScale = Vector3.one * newScale;
+            spectatorCamera.transform.localScale = Vector3.one * newScale;
+            playspace.transform.localScale = Vector3.one * newScale;
 
             cameraOffset.cameraYOffset = offsetFix;//newScale;
 

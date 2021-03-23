@@ -5191,6 +5191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useManualHeightOffset: 0
+  playerSetTag: Player
+  cameraSetTag: CameraSet
+  leftEyeTag: LeftEye
+  rightEyeTag: RightEye
+  playspaceTag: XRCamera
+  spectatorCameraTag: DesktopCamera
   playerSpawnCenterTag: PlayerSpawnCenter
   cameraOffset: {fileID: 8475500293205437308}
   lineRenderersToScaleWithPlayer:

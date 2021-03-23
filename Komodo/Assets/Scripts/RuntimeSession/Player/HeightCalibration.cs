@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 
 namespace Komodo.Runtime
@@ -19,6 +20,8 @@ namespace Komodo.Runtime
 
     public class HeightCalibration : MonoBehaviour
     {        
+        public TeleportPlayer teleportPlayer;
+
         public GameObject leftHand;
 
         public GameObject rightHand;
@@ -35,9 +38,11 @@ namespace Komodo.Runtime
 
         public UnityEvent_Float onBumpHeightDown;
 
+        public string leftEyeTag = "LeftEye";
+
         public float bumpAmount = 0.2f; //meters
 
-        private Transform xrPlayer;
+        private Transform leftEye;
 
         private Vector3 floorHeightDisplayCenter;
 
@@ -45,55 +50,34 @@ namespace Komodo.Runtime
 
         private float minYOfHands;
 
-        public void Awake () 
+        public void OnValidate () 
         {
-
+            if (!leftEye) 
+            {
+                leftEye = GameObject.FindGameObjectWithTag(leftEyeTag).transform;
+            }
         }
 
         public void Start () 
         {
-            //Get xr player to change position
-            if (!xrPlayer) 
-            {
-                xrPlayer = GameObject.FindGameObjectWithTag("XRCamera").transform;
-            }
-
             minYOfHands = leftHand.transform.position.y;
 
-            floorHeightDisplayCenter = new Vector3(xrPlayer.position.x, minYOfHands, xrPlayer.position.z);
+            floorHeightDisplayCenter = new Vector3(leftEye.position.x, minYOfHands, leftEye.position.z);
         }
 
         public void Update ()
         {
-            //TODO delete whole function
-
-            if (Input.GetKeyDown(KeyCode.H) && !isCalibratingHeight) 
-            {
-                StartCalibration();
-
-                return;
-            }
-
-            if (Input.GetKeyDown(KeyCode.H) && isCalibratingHeight)
-            {
-                
-                EndCalibration();
-
-                return;
-            }
-
             if (isCalibratingHeight) {
                 minYOfHands = GetMinimumYPositionOfHands(leftHand, rightHand);
 
-                floorHeightDisplayCenter.x = xrPlayer.position.x;
+                floorHeightDisplayCenter.x = leftEye.position.x;
                 floorHeightDisplayCenter.y = minYOfHands;
-                floorHeightDisplayCenter.z = xrPlayer.position.z;
+                floorHeightDisplayCenter.z = leftEye.position.z;
 
                 onCalibrationUpdate.Invoke(floorHeightDisplayCenter);
             }
         }
         
-
         public void BumpHeightUp () 
         {
             onBumpHeightUp.Invoke(bumpAmount);
@@ -139,17 +123,15 @@ namespace Komodo.Runtime
                 return;
             }
 
-            Debug.Log("Ending player height calibration");
-
             var handHeight = minYOfHands;
 
             var terrainHeight = ComputeGlobalYPositionOfTerrainBelowPlayer();
 
-            var newHeightOffset = terrainHeight - handHeight;
+            var heightToBumpPlayer = terrainHeight - handHeight;
 
-            Debug.Log($"terrain height: {terrainHeight} / handHeight: {handHeight} / newOffset: {newHeightOffset}");
+            Debug.Log($"[HeightCalibration] terrain height: {terrainHeight} / handHeight: {handHeight} / heightToBumpPlayer: {heightToBumpPlayer}");
 
-            onFinishedCalibration.Invoke(newHeightOffset);
+            onFinishedCalibration.Invoke(heightToBumpPlayer);
 
             minYOfHands = float.MaxValue;
 
@@ -160,30 +142,29 @@ namespace Komodo.Runtime
         {
             float globalHeight = 10f;
 
-            if (Physics.Raycast(xrPlayer.position, Vector3.down, out RaycastHit downHitInfo, layerMask))
+            if (Physics.Raycast(leftEye.position, Vector3.down, out RaycastHit downHitInfo, layerMask))
             {
+                Debug.Log($"[HeightCalibration] Found terrain from casting down from player position ({leftEye.position.x} {leftEye.position.y} {leftEye.position.z}).");
+
                 return downHitInfo.point.y;
             }
-            
-            Debug.LogWarning($"Could not find terrain below player. Trying to find it from {globalHeight}m above the player.");
 
-            var bumpedPlayerPosition = xrPlayer.position;
+            Vector3 heightenedPlayerPosition = leftEye.position;
 
-            bumpedPlayerPosition.y += globalHeight;
+            heightenedPlayerPosition.y += globalHeight;
             
-            if (Physics.Raycast(bumpedPlayerPosition, Vector3.down, out RaycastHit downFromAboveHitInfo, layerMask))
+            Debug.Log($"[HeightCalibration] Could not find terrain below player. Trying to find it from {heightenedPlayerPosition.x} {heightenedPlayerPosition.y} {heightenedPlayerPosition.z}");
+            
+            if (Physics.Raycast(heightenedPlayerPosition, Vector3.down, out RaycastHit downFromAboveHitInfo, layerMask))
             {
+                Debug.Log($"[HeightCalibration] Found terrain from casting down from {globalHeight}m above player.");
+                
                 return downFromAboveHitInfo.point.y;
             }
 
-            Debug.LogError($"Could now find terrain below player or below  {globalHeight}m above the player. Make sure your layer mask is valid and that there are objects on that layer. Proceeding anyways and returning '0' for the height offset.");
+            Debug.LogError($"[HeightCalibration] Could not find terrain below player or below  {globalHeight}m above the player. Make sure your layer mask is valid and that there are objects on that layer. Proceeding anyways and returning '0' for the height offset.");
 
             return 0.0f;
-        }
-
-        public float GetGlobalYPositionOfHand (GameObject hand) 
-        {
-            return hand.transform.position.y;
         }
 
         public float GetMinimumYPositionOfHands (GameObject handL, GameObject handR) 
@@ -192,12 +173,12 @@ namespace Komodo.Runtime
 
             var curRightY = handR.transform.position.y;
 
-            if (curLeftY < curRightY && curLeftY < minYOfHands) 
+            if (curLeftY <= curRightY && curLeftY < minYOfHands) 
             {
                 return curLeftY;
             }
 
-            if (curRightY < curLeftY && curRightY < minYOfHands)
+            if (curRightY <= curLeftY && curRightY < minYOfHands)
             {
                 return curRightY;
             }
@@ -208,6 +189,6 @@ namespace Komodo.Runtime
         public float GetGlobalYPositionOfHead (GameObject head)
         {
             return head.transform.position.y;
-        }
+        }        
     }
 }
