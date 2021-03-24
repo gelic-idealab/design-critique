@@ -22,11 +22,15 @@ namespace Komodo.Runtime
     {        
         public TeleportPlayer teleportPlayer;
 
+        public string leftEyeTag = "LeftEye";
+
         public GameObject leftHand;
 
         public GameObject rightHand;
 
         public LayerMask layerMask;
+
+        public float bumpAmount = 0.2f; //meters
 
         public UnityEvent onStartedCalibration;
 
@@ -38,10 +42,6 @@ namespace Komodo.Runtime
 
         public UnityEvent_Float onBumpHeightDown;
 
-        public string leftEyeTag = "LeftEye";
-
-        public float bumpAmount = 0.2f; //meters
-
         private Transform leftEye;
 
         private Vector3 floorHeightDisplayCenter;
@@ -52,14 +52,19 @@ namespace Komodo.Runtime
 
         public void OnValidate () 
         {
-            if (!leftEye) 
+            if (GameObject.FindGameObjectWithTag(leftEyeTag) == null) 
             {
-                leftEye = GameObject.FindGameObjectWithTag(leftEyeTag).transform;
+                throw new System.Exception($"Could not find GameObject with tag {leftEyeTag}");
             }
         }
 
         public void Start () 
         {
+            if (!leftEye) 
+            {
+                leftEye = GameObject.FindGameObjectWithTag(leftEyeTag).transform;
+            }
+
             minYOfHands = leftHand.transform.position.y;
 
             floorHeightDisplayCenter = new Vector3(leftEye.position.x, minYOfHands, leftEye.position.z);

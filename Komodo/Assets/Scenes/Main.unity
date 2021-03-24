@@ -524,6 +524,11 @@ PrefabInstance:
       propertyPath: worldCenterTagName
       value: WorldCenter
       objectReference: {fileID: 0}
+    - target: {fileID: 8475481380754204477, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
+        type: 3}
+      propertyPath: m_TagString
+      value: LeftEye
+      objectReference: {fileID: 0}
     - target: {fileID: 8475500293205437185, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
         type: 3}
       propertyPath: m_Name
@@ -1839,11 +1844,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportPlayer: {fileID: 1717507324}
+  leftEyeTag: LeftEye
   leftHand: {fileID: 1203216071}
   rightHand: {fileID: 2136809035}
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+  bumpAmount: 0.1
   onStartedCalibration:
     m_PersistentCalls:
       m_Calls:
@@ -1967,8 +1974,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  leftEyeTag: LeftEye
-  bumpAmount: 0.1
 --- !u!20 &1432814074 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 8490316167229229245, guid: 53289847581eb3c4a9df5d9b7f47ddb9,
