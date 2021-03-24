@@ -27,6 +27,26 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Light1
+    second: {fileID: 2100000, guid: 1bb7f464c6c4efc448f3fddd64579891, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light2
+    second: {fileID: 2100000, guid: f873f6602c99e0848bfe2a3dc45ac41b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light3
+    second: {fileID: 2100000, guid: 6ec1f1ababbeadd4a8dbc8498265ad89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light4
+    second: {fileID: 2100000, guid: 288de7f3b70f1db41a805c26aaca2d62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: No Name
     second: {fileID: 2100000, guid: 4ba36a4180cb2504d870a45d8e18fd69, type: 2}
   - first:
@@ -64,6 +84,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: RoofRim
     second: {fileID: 2100000, guid: 5ef0973786d3e9742952406205a1d400, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SouthMassInside
+    second: {fileID: 2100000, guid: 05344fb06ab628c43b271d24d09ed97d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
