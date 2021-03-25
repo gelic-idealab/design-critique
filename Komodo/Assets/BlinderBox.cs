@@ -18,6 +18,14 @@ public class BlinderBox : MonoBehaviour
         }
     }
 
+    public void Start ()
+    {
+        if (!box) 
+        {
+            throw new System.Exception("You must set Box");
+        }
+    }
+
     /**
     * otherTransform: location that blinder box should be centered on.
     */
