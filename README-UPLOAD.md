@@ -39,7 +39,7 @@
 
 ## Upload a garment to Komodo
 
-Repeat the steps for "upload a mood board model to Komodo", but choose `<garmentNameHere>.glb` instead of the mood board file. [4]
+Download your garment GLB model from the Fashion Illustration Google Drive. Repeat the steps for "upload a mood board model to Komodo", but choose `<garmentNameHere>.glb` instead of the mood board file. [4]
 
 ___
 
