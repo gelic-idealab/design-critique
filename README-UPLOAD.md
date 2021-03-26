@@ -1,5 +1,6 @@
 # Fashion Critique Upload Instructions
 
+## Table of Contents
 1. Log into Komodo
 1. Convert a mood board image to a 3D model (GLBs)
 2. Upload the mood board model to Komodo
