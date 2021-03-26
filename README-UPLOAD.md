@@ -1,17 +1,17 @@
 # Fashion Critique Upload Instructions
+
 ## Table of Contents
 
-Instructions Before Critique
-
-1. Convert a mood board image to a 3D model (GLBs)
-
-Instructions During Critique
-
 1. Log into Komodo
-1. Upload the mood board model to Komodo
-3. Upload the garment model to Komodo
+1. Convert a mood board image to a 3D model (GLBs)
+3. Upload the mood board model to Komodo
+4. Upload the garment model to Komodo
 
-# Instructions Before Critique
+## Log into Komodo and open the Assets page
+
+1. Log into [https://komodo-dev.library.illinois.edu](https://komodo-dev.library.illinois.edu) on a computer [1].
+2. Choose `Assets` in the left sidebar.
+3. Leave this page open. 
 
 ## Convert a mood board image to a 3D model
 
@@ -21,19 +21,6 @@ Instructions During Critique
 4. Save the file.
 5. Upload the file to the shared Google Drive folder.
 
-
-
-
-# Instructions During Critique
-
-## Log into Komodo and open the Assets page
-
-1. Log into [https://komodo-dev.library.illinois.edu](https://komodo-dev.library.illinois.edu) on a computer [1].
-2. Choose `Assets` in the left sidebar.
-3. Leave this page open. 
-## Upload a garment to Komodo
-
-Download your garment GLB model from the Fashion Illustration Google Drive. Repeat the steps for "upload a mood board model to Komodo", but choose `<garmentNameHere>.glb` instead of the mood board file. [4]
 ## Upload the mood board model to Komodo
 
 1. Make sure you are on the Komodo > Assets page.
@@ -48,6 +35,10 @@ Download your garment GLB model from the Fashion Illustration Google Drive. Repe
    3. Scale (1)
 6. Press `Upload` and wait for the preview.
 7. Go back to `Assets` (left sidebar).
+
+## Upload a garment to Komodo
+
+Download your garment GLB model from the Fashion Illustration Google Drive. Repeat the steps for "upload a mood board model to Komodo", but choose `<garmentNameHere>.glb` instead of the mood board file. [4]
 ___
 
 ## Footnotes
