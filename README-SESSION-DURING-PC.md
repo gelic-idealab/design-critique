@@ -1,4 +1,4 @@
-# Fashion Critique: Using Komodo During a Session on a PC
+# Fashion Critique: Using Komodo During a Session with PC VR
 
 ## Table of Contents
 
