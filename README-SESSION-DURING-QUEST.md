@@ -61,6 +61,12 @@ By the end of this, you should have a guardian (play area) set up and know the p
 1. Point your hand at the menu.
 2. Press the trigger button. 
 
+### Reset your position
+
+Choose "Re-center" (the house icon) in the menu. 
+
+We recommend doing this because the starting position may have been affected by any scrolling motion done before you entered VR. 
+
 ### Calibrate your height
 
 1. Open `Settings`.
