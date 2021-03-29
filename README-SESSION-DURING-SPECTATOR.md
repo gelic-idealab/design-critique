@@ -33,6 +33,8 @@ Please use Firefox or Chrome.
 
 ## Learn to use Komodo
 
+Note: the Create (draw, erase, undo) feature and the Height Calibration feature only work in VR. Sorry about this.
+
 ### Use the menu
 
 Select items with your mouse.
