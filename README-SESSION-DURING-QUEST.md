@@ -33,10 +33,11 @@ By the end of this, you should have a guardian (play area) set up and know the p
 
 ## Log into Komodo
 
-1. Open Bookmarks
-2. Choose "komodo-dev.library.illinois.edu"
-3. Enter your Illinois email address
-4. Enter your Komodo account password
+1. Open Bookmarks and choose "komodo-dev.library.illinois.edu"
+2. Or type `tiny.cc/kmd0` in the address bar
+4. Enter your Illinois email address
+5. Enter your Komodo account password
+6. Press Login
 
 ## Go to the session and enter it
 
