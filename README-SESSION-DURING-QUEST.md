@@ -82,7 +82,7 @@ Wave to your peers!
 1. Press and hold the thumbstick like a button.
 2. Aim at the floor.
 3. Let go of the thumbstick. 
-4. NOTE: due to a bug in fashion-v0.2.0 (core-v0.2.3), sometimes, you need to teleport twice to land at the correct height. Our apologies. 
+4. NOTE: due to a bug in fashion-v0.2.0 (core-v0.2.3), sometimes, you need to teleport twice to land at the correct height. (Do not recalibrate your height -- simply teleport a second time to the same place.) Our apologies.
 
 ### Snap turn (rotate your view)
 
