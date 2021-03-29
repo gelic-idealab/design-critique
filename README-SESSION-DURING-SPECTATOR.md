@@ -45,7 +45,7 @@ Open and close panels on the left.
 
 Note: The menu does not use a tabbed system yet, so make sure to close a panel when you are done with it. Otherwise, the menu can get too long. We apologize for the inconvenience. 
 
-### Fly around the world
+### Move around
 
 **Move Forward, Back, Left, Right** -- WASD or Arrow Keys
 
