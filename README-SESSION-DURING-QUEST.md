@@ -50,13 +50,56 @@ By the end of this, you should have a guardian (play area) set up and know the p
 
 ## Learn to use Komodo
 
-1. Calibrate your height
-2. Hide your menu
-3. Look for others
-4. Teleport and snap-turn
-5. Move and rotate a model
-6. Stretch a model
-7. Lock a model
+### Show the menu
+
+1. Switch to a right-handed menu by pressing the Komodo menu button (`Y`) on your left controller.
+2. Press the Komodo menu button (`B`) on your right controller to switch back to a left-handed menu.
+3. Press either menu icon to show and hide the menu. 
+
+### Use the menu
+
+1. Point your hand at the menu.
+2. Press the trigger button. 
+
+### Calibrate your height
+
+1. Open `Settings`.
+2. Press `Calibrate Height` if you are able to stand.
+3. If not, press the `+` or `-` buttons until you are at a comfortable height. 
+
+### Look for others
+
+Wave to your peers!
+
+### Teleport
+
+1. Press and hold the thumbstick like a button.
+2. Aim at the floor.
+3. Let go of the thumbstick. 
+4. NOTE: due to a bug in fashion-v0.2.0 (core-v0.2.3), sometimes, you need to teleport twice to land at the correct height. Our apologies. 
+
+### Snap turn (rotate your view)
+
+Quickly flick the thumbstick left or right.
+
+### Move and rotate a model
+
+1. Place your hand in a model.
+2. Squeeze the grip button. 
+3. Move your hand.
+4. Let go of the grip button.
+
+### Stretch a model
+
+1. Place both hands in a model.
+2. Squeeze both grip buttons. 
+3. Move both hands.
+4. Let go of both grip buttons.
+
+### Lock and unlock a model
+
+1. Open your menu
+2. Select the white square (or lock icon) to the left of the model name.
 
 ## Exit the session
 
