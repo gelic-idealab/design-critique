@@ -8,6 +8,7 @@
 4. Log into Komodo with provided account 
 5. Go to the session and enter it
 6. Learn to use Komodo
+7. Exit the session
 
 ## Open Zoom on a computer or phone 
 
