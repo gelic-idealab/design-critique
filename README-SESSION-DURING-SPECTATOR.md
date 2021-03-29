@@ -47,11 +47,13 @@ Note: The menu does not use a tabbed system yet, so make sure to close a panel w
 
 ### Fly around the world
 
-**WASD / Arrow Keys** -- Forward, Back, Left, Right
+**Move Forward, Back, Left, Right** -- WASD or Arrow Keys
 
-**Click-Drag** -- Rotate view / change movement direction
+**Rotate view / change movement direction** -- Click and drag 
 
-**Scroll** -- Hyperspeed motion
+**Hyperspeed motion (not recommended)** -- Scroll over the Komodo window
+
+**Reset your position** -- Press the Home icon in the upper left of the menu.
 
 ### Look for others
 
