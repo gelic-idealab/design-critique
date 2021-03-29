@@ -30,6 +30,9 @@
    2. Asset Name  (FirstnameLastname).
    1. Description (GroupA, GroupB, or GroupC)
    3. Public/Private (make sure it says "Public") [3]
+      1. This means public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
+      2. This means private: <img width="137" alt="Screen Shot 2021-03-28 at 4 21 44 PM" src="https://user-images.githubusercontent.com/8165314/112768428-b3176300-8fe1-11eb-888a-1184f836981c.png">
+
 5. Skip optional details: 
    1. "Treat as one object" (on) 
    3. Scale (1)
