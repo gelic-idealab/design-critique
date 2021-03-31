@@ -13,8 +13,9 @@ Lab Staff
 
 1. Ensure the guardian is set up
 1. Open Oculus Mirror
-2. Open Zoom and ensure mic settings are correct
-3. (optional) Set up screen recording with OBS
+2. Ensure sound settings are correct
+3. Open Zoom and ensure mic settings are correct
+4. (optional) Set up screen recording with OBS
 
 ## Launch Firefox Reality via Viveport
 
@@ -116,6 +117,13 @@ ___
 
 There will be no output until the user puts on their headset. 
 
+## Ensure sound settings are correct
+
+1. Open Settings > Sound 
+2. Or right-click the speaker icon in the task bar and select `Sound Settings`
+3. Make sure the sound output is set to `Headphones (# - Rift S)`
+4. Make sure the mic input is set to `Headset Microphone (# - Rift S)`
+
 ## Open Zoom and ensure mic settings are correct
 
 1. Access the provided Zoom session.
@@ -124,4 +132,8 @@ There will be no output until the user puts on their headset.
 
 ## (optional) Set up screen recording with OBS
 
-1. Make sure the Display capture 
+1. Check the sources pane.
+4. If there is no Display Capture, press the `+` icon and select `Display Capture`.
+3. Make sure the Display Capture is set to the active display.
+5. If there is no sound input (Mic/Aux or something similar), press the `+` icon and select `Audio Input Capture`.
+6. Make sure the Audio Input Capture uses `Headset Microphone (# - Rift S)`.
