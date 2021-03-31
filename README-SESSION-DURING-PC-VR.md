@@ -11,6 +11,7 @@ Students
 
 Lab Staff
 
+1. Ensure the guardian is set up
 1. Open Oculus Mirror
 2. Open Zoom and ensure mic settings are correct
 3. (optional) Set up screen recording with OBS
@@ -100,3 +101,27 @@ Quickly flick the thumbstick left or right.
 ## Exit the session
 
 1. Press the hamburger button on your left controller. 
+
+
+___
+
+# Instructions for Lab Staff
+
+## Ensure the guardian is set up
+
+## Open Oculus Mirror
+
+1. Open Oculus Mirror using the provided shortcut
+2. Or open C:\Program Files\Oculus\Support\oculus-diagnostics\OculusMirror.exe 
+
+There will be no output until the user puts on their headset. 
+
+## Open Zoom and ensure mic settings are correct
+
+1. Access the provided Zoom session.
+2. Change the sound output to "System Default"
+3. Change the mic input to "System Default"
+
+## (optional) Set up screen recording with OBS
+
+1. Make sure the Display capture 
