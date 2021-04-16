@@ -1,5 +1,7 @@
 # design-critique
 Design critique domain module for the Komodo platform
+![image](https://user-images.githubusercontent.com/8165314/114992054-ee2de900-9e5f-11eb-83fc-5f4a52cfa732.png)
+
 
 # Tilt Brush Instructions 
 For PC VR, which includes Oculus Rift (S) and Oculus Link (Quest plugged into a PC)
