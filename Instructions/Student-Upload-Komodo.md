@@ -6,7 +6,7 @@
 1. Convert a mood board image to a 3D model (GLBs)
 3. Upload the mood board model to Komodo
 4. Upload the garment model to Komodo
-5. Delete any unwanted garments or mood boards
+5. Delete and re-upload any unwanted garments or mood boards
 
 ___
 
@@ -67,7 +67,7 @@ ___
 6. Press `Upload` and wait for the preview. [3]
 7. Go back to `Assets` (left sidebar).
 
-## Edit [4] or Delete any unwanted garments or mood boards
+## Delete and re-upload [4] any unwanted garments or mood boards
 
 1. Open the left sidebar.
 2. Click on your name at the very top to go to the Profile page.
