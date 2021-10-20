@@ -7,6 +7,7 @@
 3. Upload the garment sketch (Tilt) and 3D model (GLB) files to Google Drive
 4. Upload the garment 3D model (GLB) file to Icosa Gallery
 5. Preview the GLB file in Icosa Gallery
+6. More info
 
 ___
 
@@ -63,8 +64,8 @@ NOTE: GLB files generated with Open Brush need post-processing to display proper
 5. Press `Upload`.
 6. Drag-and-drop the GLB file from the computer to the `Choose File` button.
 7. Or press `Choose File` and select the GLB file.
-8. Wait for the upload to finish, then refresh the page.
-9. Scroll to the bottom of `My Uploads` and select the last item, which should be your garment.
+8. Wait for the upload to finish, then refresh the page. It should automatically take you to `Manage Uploads`.
+9. Scroll to the bottom of `Manage Uploads` and select the last item, which should be your garment.
 10. Preview the garment and make sure it looks correct.
 
 ___
