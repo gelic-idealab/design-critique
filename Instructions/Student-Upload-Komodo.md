@@ -34,7 +34,7 @@ ___
    2. Asset Name
       1. **FirstnameLastname-M (Example: AshKetchum-M)**  -- IMPORTANT!
    3. Description 
-      1. Thursday or Tuesday
+      1. `ARTS 221 Thursday` or `ARTS 221 Tuesday`
    4. Public/Private:
       1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
 
@@ -57,7 +57,7 @@ ___
    2. Asset Name
       1. **FirstnameLastname-G (Example: AshKetchum-G)** -- IMPORTANT!
    3. Description 
-      1. Thursday or Tuesday
+      1. `ARTS 221 Thursday` or `ARTS 221 Tuesday`
    4. Public/Private:
       1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
 
