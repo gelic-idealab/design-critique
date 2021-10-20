@@ -21,8 +21,7 @@ ___
 1. Go to [images-to-glbs.glitch.me](http://images-to-glbs.glitch.me) in a new tab. [2]
 2. Press `Choose File`.
 3. Press `Download Image Plane(s) as a Single GLB`
-4. Save the file.
-5. Upload the file to the shared Google Drive folder.
+4. Save the file to your computer.
 
 ## Upload the mood board model to Komodo
 
