@@ -12,8 +12,9 @@ ___
 ## Log into Komodo and open the Assets page
 
 1. Log into [https://komodo-dev.library.illinois.edu](https://komodo-dev.library.illinois.edu) on a computer [1].
-2. Choose `Assets` in the left sidebar.
-3. Leave this page open. 
+2. Sign in with your Illinois email and the password that was emailed to you.
+3. Choose `Assets` in the left sidebar.
+4. Leave this page open. 
 
 ## Convert a mood board image to a 3D model
 
@@ -31,11 +32,11 @@ ___
    1. Choose File 
       1. Select `<moodBoardNameHere>.glb`
    2. Asset Name
-      1. **FirstnameLastname-M (Example: AshKetchum-M)**
+      1. **FirstnameLastname-M (Example: AshKetchum-M)**  -- IMPORTANT!
    3. Description 
       1. Thursday or Tuesday
    4. Public/Private:
-      1. <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
+      1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
 
 5. Skip optional details: 
    1. "3D Model"
@@ -54,11 +55,11 @@ ___
    1. Choose File 
       1. Select `<garmentNameHere>.glb`
    2. Asset Name
-      1. **FirstnameLastname-G (Example: AshKetchum-G)**
+      1. **FirstnameLastname-G (Example: AshKetchum-G)** -- IMPORTANT!
    3. Description 
       1. Thursday or Tuesday
    4. Public/Private:
-      1. <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
+      1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
 
 5. Skip optional details: 
    1. "3D Model" = On
