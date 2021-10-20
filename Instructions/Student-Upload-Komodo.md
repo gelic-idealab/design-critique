@@ -6,6 +6,7 @@
 1. Convert a mood board image to a 3D model (GLBs)
 3. Upload the mood board model to Komodo
 4. Upload the garment model to Komodo
+5. Delete any unwanted garments or mood boards
 
 ___
 
@@ -65,10 +66,21 @@ ___
    2. Scale = 1
 6. Press `Upload` and wait for the preview. [3]
 7. Go back to `Assets` (left sidebar).
+
+## Edit [4] or Delete any unwanted garments or mood boards
+
+1. Open the left sidebar.
+2. Click on your name at the very top to go to the Profile page.
+3. View your assets in the table.
+4. Click one to go to the asset detail page.
+6. Press `Delete` (in the `Information` panel on the right).
+7. This should automatically redirect you to the Assets page, which shows everyone's public assets.
+8. Optionally, click `+ Upload` to re-upload the same asset and change the details.
 ___
 
 ## Footnotes
 1. Uploading files from a standalone VR headset or a mobile phone is not supported at this time.
 2. This tool turns the image into a 3D model. We need this step because Komodo only imports GLB files. 
 3. The garment preview may look incorrect. The web viewer does not support Tilt Brush-generated GLBs. (But Komodo VR does.)
+4. Unfortunately, the asset edit buttons do not work at this time. To change details on an asset, please delete it and re-upload it.
 
