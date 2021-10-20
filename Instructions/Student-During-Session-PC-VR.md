@@ -4,26 +4,22 @@
 
 Students
 
-1. Open Firefox Reality via Viveport
-1. Log into provided Komodo account
+1. Sign into Zoom and do a mic and speaker check
+1. Open Firefox and log into Komodo
 2. Go to session and enter it
-3. Learn to use Komodo
+3. Put on your VR headset and make sure you are in Komodo
+4. Learn to use Komodo
 
-Lab Staff
+___
 
-1. Ensure the guardian is set up
-1. Open Oculus Mirror
-2. Ensure sound settings are correct
-3. Open Zoom and ensure mic settings are correct
-4. (optional) Set up screen recording with OBS
+## Sign into Zoom and do a mic and speaker check
 
-## Launch Firefox Reality via Viveport
+1. Sign into Zoom with your Illinois email and password
+2. Join the Zoom session provided to you via email
+3. Hold the VR headset and lightly tap it to make sure the microphone works
+4. Play a test sound and make sure the sound is coming from your VR headset
 
-1. Open Viveport
-2. Make sure you are on the Library tab
-3. Choose Firefox Reality
-
-## Log into Komodo
+## Open Firefox and log into Komodo
 
 1. In Firefox Reality, go to "komodo-dev.library.illinois.edu"
 2. Or type `tiny.cc/kmd0` in the address bar
@@ -34,11 +30,18 @@ Lab Staff
 ## Go to the session and enter it
 
 1. Choose `ARTS 221`
-2. Choose `SP21 Critique Group A/B/C` by clicking on the words (not the icons).
-3. Choose `> START NOW`
-4. Wait for `Models` and `Environments` to show up on the screen.
-5. Press `VR` in the lower right corner. 
-6. Put your VR headset on.
+2. Choose `<Semester> Critique Group A/B/C` by clicking on the play icon.
+3. Choose `> START NOW` (in the upper right).
+4. Wait for the `VR` button in the lower right corner to turn blue, then press it.
+5. Put your VR headset on.
+
+## Put on your VR headset and make sure you are in Komodo
+
+1. You should see a 3D environment.
+2. If you see the outside world in black and white...
+   1. Follow the instructions to set up the Guardian boundary.
+   2. Or ask for help.
+3. If you see a virtual home, a white grid room, an app store, or some other application, please ask for help.
 
 ## Learn to use Komodo
 
@@ -51,11 +54,11 @@ Lab Staff
 ### Use the menu
 
 1. Point your hand at the menu.
-2. Press the trigger button. 
+2. Press the trigger button with your index finger.
 
 ### Reset your position
 
-Choose "Re-center" (the house icon) in the menu. 
+Choose "Starting location" (the house icon) in the menu. 
 
 We recommend doing this because the starting position may have been affected by any scrolling motion done before you entered VR. 
 
@@ -63,7 +66,7 @@ We recommend doing this because the starting position may have been affected by 
 
 1. Open `Settings`.
 2. Press `Calibrate Height` if you are able to stand.
-3. If not, press the `+` or `-` buttons until you are at a comfortable height. 
+3. If not, press the `/\ /\` or `\/ \/` buttons until you are at a comfortable height. 
 
 ### Look for others
 
@@ -74,7 +77,7 @@ Wave to your peers!
 1. Press and hold the thumbstick like a button.
 2. Aim at the floor.
 3. Let go of the thumbstick. 
-4. NOTE: due to a bug in fashion-v0.2.0 (core-v0.2.3), sometimes, you need to teleport twice to land at the correct height. (Do not recalibrate your height -- simply teleport a second time to the same place.) Our apologies. 
+4. NOTE: due to a bug in the latest version of Komodo, sometimes, you need to teleport twice to land at the correct height. (Do not recalibrate your height -- simply teleport a second time to the same place.) Our apologies. 
 
 ### Snap turn (rotate your view)
 
@@ -83,57 +86,22 @@ Quickly flick the thumbstick left or right.
 ### Move and rotate a model
 
 1. Place your hand in a model.
-2. Squeeze the grip button. 
+2. Squeeze the grip button with your middle finger.
 3. Move your hand.
 4. Let go of the grip button.
 
 ### Stretch a model
 
 1. Place both hands in a model.
-2. Squeeze both grip buttons. 
+2. Squeeze both grip buttons with your middle fingers.
 3. Move both hands.
 4. Let go of both grip buttons.
 
 ### Lock and unlock a model
 
 1. Open your menu
-2. Select the white square (or lock icon) to the left of the model name.
+2. Select the unlock / lock icon to the left of the model name.
 
 ## Exit the session
 
 1. Press the hamburger button on your left controller. 
-
-
-___
-
-# Instructions for Lab Staff
-
-## Ensure the guardian is set up
-
-## Open Oculus Mirror
-
-1. Open Oculus Mirror using the provided shortcut
-2. Or open C:\Program Files\Oculus\Support\oculus-diagnostics\OculusMirror.exe 
-
-There will be no output until the user puts on their headset. 
-
-## Ensure sound settings are correct
-
-1. Open Settings > Sound 
-2. Or right-click the speaker icon in the task bar and select `Sound Settings`
-3. Make sure the sound output is set to `Headphones (# - Rift S)`
-4. Make sure the mic input is set to `Headset Microphone (# - Rift S)`
-
-## Open Zoom and ensure mic settings are correct
-
-1. Access the provided Zoom session.
-2. Change the sound output to "System Default"
-3. Change the mic input to "System Default"
-
-## (optional) Set up screen recording with OBS
-
-1. Check the sources pane.
-4. If there is no Display Capture, press the `+` icon and select `Display Capture`.
-3. Make sure the Display Capture is set to the active display.
-5. If there is no sound input (Mic/Aux or something similar), press the `+` icon and select `Audio Input Capture`.
-6. Make sure the Audio Input Capture uses `Headset Microphone (# - Rift S)`.

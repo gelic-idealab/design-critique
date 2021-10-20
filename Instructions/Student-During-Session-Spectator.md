@@ -2,6 +2,8 @@
 
 ## Table of Contents
 
+Students
+
 1. Join the Zoom session
 1. Open Komodo with a supported browser
 2. Log into provided Komodo account
@@ -27,33 +29,31 @@ Please use Firefox or Chrome.
 ## Go to the session and enter it
 
 1. Choose `ARTS 221`
-2. Choose `SP21 Critique Group A/B/C` by clicking on the words (not the icons).
-3. Choose `> START NOW`
-4. Wait for `Models` and `Environments` to show up on the screen.
+2. Choose `<Semester> Critique Group A/B/C` by clicking on the play icon.
+3. Choose `> START NOW` (in the upper right).
+4. Wait for the session to load.
 
 ## Learn to use Komodo
 
-Note: the Create (draw, erase, undo) feature and the Height Calibration feature only work in VR. Sorry about this.
+Note: Create (draw, erase, undo) menu tools, Height Calibration, moving models, and stretching models only work in VR and not on a desktop or laptop browser. Sorry about this.
 
 ### Use the menu
 
-Select items with your mouse.
-
-Press the word "Models" to collapse this panel. This panel should really only be used by the instructor, and it also blocks your view. 
-
-Open and close panels on the left. 
-
-Note: The menu does not use a tabbed system yet, so make sure to close a panel when you are done with it. Otherwise, the menu can get too long. We apologize for the inconvenience. 
+Select the People tab to check your connection state. Press Leave & Rejoin or Close Connection & Rejoin to try and reconnect first. If that still doesn't work, refresh the page.
 
 ### Move around
 
-**Move Forward, Back, Left, Right** -- WASD or Arrow Keys
+**Move Forward, Back, Left, Right**: <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>
 
-**Rotate view / change movement direction** -- Click and drag 
+**Rotate view / change movement direction**: Click and drag
 
-**Hyperspeed motion (not recommended)** -- Scroll over the Komodo window
+**Look left or right** -- <kbd>Q</kbd> <kbd>E</kbd>
 
-**Reset your position** -- Press the Home icon in the upper left of the menu.
+**Look up or down** -- <kbd>2</kbd> <kbd>3</kbd>
+
+**Reset your position** -- Select Settings, then choose "Starting Position."
+
+**Hyperspeed motion (not recommended)** -- Scroll over the Komodo viewport
 
 ### Look for others
 

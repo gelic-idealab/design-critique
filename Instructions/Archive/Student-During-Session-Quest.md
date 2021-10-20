@@ -2,6 +2,8 @@
 
 ## Table of Contents
 
+Students
+
 1. Open Zoom on a computer or phone
 1. Set up your Quest headset
 3. Launch Firefox Reality
