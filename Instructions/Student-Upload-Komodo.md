@@ -69,12 +69,16 @@ ___
 
 ~~## Delete and re-upload [4] any unwanted garments or mood boards~~
 
-Unfortunately, deletion is not available at this time in the interface for non-administrator users. Please email Brandon for any assets you would like to delete.
+~~Unfortunately, the asset edit buttons do not work at this time. To change details on an asset, please delete it and re-upload it.~~
+
+Unfortunately, editing and deletion are not available at this time for non-administrator users. Please re-upload any assets in order to change the details. It's probably a good idea to put "Version 2", "Version 3", etc. in the description so Brandon can identify which one to use in the critique.
+
+If you would like to delete an asset, please email Brandon.
 ___
 
 ## Footnotes
 1. Uploading files from a standalone VR headset or a mobile phone is not supported at this time.
 2. This tool turns the image into a 3D model. We need this step because Komodo only imports GLB files. If you cannot access this website, email Brandon.
 3. The garment preview may look incorrect. The web viewer does not support Tilt Brush-generated GLBs. (But Komodo VR does.)
-4. Unfortunately, the asset edit buttons do not work at this time. To change details on an asset, please delete it and re-upload it.
+4. 
 
