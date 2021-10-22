@@ -67,15 +67,9 @@ ___
 6. Press `Upload` and wait for the preview. [3]
 7. Go back to `Assets` (left sidebar).
 
-## Delete and re-upload [4] any unwanted garments or mood boards
+~~## Delete and re-upload [4] any unwanted garments or mood boards~~
 
-1. Open the left sidebar.
-2. Click on your name at the very top to go to the Profile page.
-3. View your assets in the table.
-4. Click one to go to the asset detail page.
-6. Press `Delete` (in the `Information` panel on the right).
-7. This should automatically redirect you to the Assets page, which shows everyone's public assets.
-8. Optionally, click `+ Upload` to re-upload the same asset and change the details.
+Unfortunately, deletion is not available at this time in the interface for non-administrator users. Please email Brandon for any assets you would like to delete.
 ___
 
 ## Footnotes
