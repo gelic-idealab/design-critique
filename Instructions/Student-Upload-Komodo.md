@@ -39,7 +39,7 @@ ___
       1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png"> -- The circle MUST be to the right for it to be public.
 
 5. Skip optional details: 
-   1. "3D Model"
+   1. "3D Model"  -- This might be called "Treat as Whole Object" in older versions.
       1. On
    2. Scale
       1. 1
