@@ -36,7 +36,7 @@ ___
    3. Description 
       1. `ARTS 221 Thursday` or `ARTS 221 Tuesday`
    4. Public/Private:
-      1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
+      1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png"> -- The circle MUST be to the right for it to be public.
 
 5. Skip optional details: 
    1. "3D Model"
@@ -59,10 +59,10 @@ ___
    3. Description 
       1. `ARTS 221 Thursday` or `ARTS 221 Tuesday`
    4. Public/Private:
-      1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png">
+      1. Public: <img width="114" alt="Screen Shot 2021-03-28 at 4 21 33 PM" src="https://user-images.githubusercontent.com/8165314/112768416-ab57be80-8fe1-11eb-81d8-55ed894a1dbb.png"> -- The circle MUST be to the right for it to be public.
 
 5. Skip optional details: 
-   1. "3D Model" = On
+   1. "3D Model" = On -- This might be called "Treat as Whole Object" in older versions.
    2. Scale = 1
 6. Press `Upload` and wait for the preview. [3]
 7. Go back to `Assets` (left sidebar).
@@ -80,7 +80,7 @@ ___
 
 ## Footnotes
 1. Uploading files from a standalone VR headset or a mobile phone is not supported at this time.
-2. This tool turns the image into a 3D model. We need this step because Komodo only imports GLB files. 
+2. This tool turns the image into a 3D model. We need this step because Komodo only imports GLB files. If you cannot access this website, email Brandon.
 3. The garment preview may look incorrect. The web viewer does not support Tilt Brush-generated GLBs. (But Komodo VR does.)
 4. Unfortunately, the asset edit buttons do not work at this time. To change details on an asset, please delete it and re-upload it.
 
