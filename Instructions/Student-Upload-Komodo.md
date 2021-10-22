@@ -24,6 +24,8 @@ ___
 3. Press `Download Image Plane(s) as a Single GLB`
 4. Save the file to your computer.
 
+If for some reason you cannot access this website, download the GLB, or are having other problems, please email your mood board image directly to Brandon. Please use PNG, JPG, or BMP file formats. Try to avoid PDF if possible.
+
 ## Upload the mood board model to Komodo
 
 1. Make sure you are on the Komodo > Assets page.
