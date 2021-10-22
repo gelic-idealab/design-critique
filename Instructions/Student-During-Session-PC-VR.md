@@ -6,9 +6,10 @@ Students
 
 1. Sign into Zoom and do a mic and speaker check
 1. Open Firefox and log into Komodo
-2. Go to session and enter it
-3. Put on your VR headset and make sure you are in Komodo
-4. Learn to use Komodo
+2. Go to the session and check if your garment and mood board are there
+3. Start the session
+4. Put on your VR headset and make sure you are in Komodo
+5. Learn to use Komodo
 
 ___
 
@@ -16,24 +17,33 @@ ___
 
 1. Sign into Zoom with your Illinois email and password
 2. Join the Zoom session provided to you via email
-3. Hold the VR headset and lightly tap it to make sure the microphone works
-4. Play a test sound and make sure the sound is coming from your VR headset
+3. Open Zoom audio settings
+4. Hold the VR headset and lightly tap it to make sure the microphone works
+5. Play a test sound and make sure the sound is coming from your VR headset
 
 ## Open Firefox and log into Komodo
 
-1. In Firefox Reality, go to "komodo-dev.library.illinois.edu"
+1. In Firefox, go to "komodo-dev.library.illinois.edu"
 2. Or type `tiny.cc/kmd0` in the address bar
 4. Enter your Illinois email address
 5. Enter your Komodo account password
 6. Press Login
 
-## Go to the session and enter it
+## Go to the session and check if your garment and mood board are there
 
 1. Choose `ARTS 221`
-2. Choose `<Semester> Critique Group A/B/C` by clicking on the play icon.
-3. Choose `> START NOW` (in the upper right).
-4. Wait for the `VR` button in the lower right corner to turn blue, then press it.
-5. Put your VR headset on.
+2. Choose `<Semester> Critique Group B Session 1` OR `Session 2` by clicking on the play icon.
+3. In the Assets table, look for `FirstnameLastname-G` and `FirstnameLastname-M`. (You may need to look on the second page)
+4. Click on `FirstnameLastname-G` to preview it.
+5. Return to the session page (press the back button).
+6. Click on `FirstnameLastname-M` to preview it.
+6. Return to the session page (press the back button).
+
+## Start the session
+
+4. Choose `> START NOW` (in the upper right).
+5. Wait for the `VR` button in the lower right corner to turn blue, then press it.
+6. Put your VR headset on.
 
 ## Put on your VR headset and make sure you are in Komodo
 
