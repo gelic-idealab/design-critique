@@ -80,5 +80,4 @@ ___
 1. Uploading files from a standalone VR headset or a mobile phone is not supported at this time.
 2. This tool turns the image into a 3D model. We need this step because Komodo only imports GLB files. If you cannot access this website, email Brandon.
 3. The garment preview may look incorrect. The web viewer does not support Tilt Brush-generated GLBs. (But Komodo VR does.)
-4. 
 
