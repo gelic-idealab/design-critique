@@ -6,7 +6,7 @@
 1. Convert a mood board image to a 3D model (GLBs)
 3. Upload the mood board model to Komodo
 4. Upload the garment model to Komodo
-5. Delete and re-upload any unwanted garments or mood boards
+5. Re-upload any unwanted garments or mood boards
 
 ___
 
@@ -67,9 +67,7 @@ ___
 6. Press `Upload` and wait for the preview. [3]
 7. Go back to `Assets` (left sidebar).
 
-~~## Delete and re-upload [4] any unwanted garments or mood boards~~
-
-~~Unfortunately, the asset edit buttons do not work at this time. To change details on an asset, please delete it and re-upload it.~~
+## Re-upload any unwanted garments or mood boards
 
 Unfortunately, editing and deletion are not available at this time for non-administrator users. Please re-upload any assets in order to change the details. It's probably a good idea to put "Version 2", "Version 3", etc. in the description so Brandon can identify which one to use in the critique.
 
