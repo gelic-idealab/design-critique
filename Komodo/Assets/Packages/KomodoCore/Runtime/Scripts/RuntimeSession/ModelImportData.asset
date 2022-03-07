@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa451ecd5b195f42a2c1736fe20dda8, type: 3}
+  m_Name: ModelImportData
+  m_EditorClassIdentifier: 
+  models:
+  - name: dragon
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/9bc7be11-8784-44a5-a621-0705f0e8e5dc/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
+  - name: millerIndexPlanes
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/feabc4e3-1cdf-4663-b1c7-c63efe677a56/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
+  - name: coralReefMB
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/dd130325-336a-4356-91dc-00a76074b025/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
+  - name: Rose
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/dd32805c-e2b8-43b1-aeb7-d3e4e836242f/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
+  - name: goldDress
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/97286a4e-3068-47d1-a462-fb16ea5f82d4/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
+  - name: brushTests
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/fe562af4-e660-454c-b9e5-b6c57086cc12/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
+  - name: G-SarahMiranda
+    id: 0
+    url: https://s3.us-east-2.amazonaws.com/vrcat-assets/f3f1442c-f9cc-454b-8b32-8f3597d79272/model.glb
+    scale: 1
+    position: {x: 0, y: 0, z: 0}
+    euler_rotation: {x: 0, y: 0, z: 0}
+    isWholeObject: 1
